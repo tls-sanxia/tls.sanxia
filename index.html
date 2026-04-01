@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三峽天龍教室 - 專業升學輔導 | 小班制教學</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
+
+        /* === 主體漸層：由上到下 #1A6B2F → #3A9E48 → #b4fa8c === */
+        .gradient-bg {
+            background: linear-gradient(180deg, #1A6B2F 0%, #3A9E48 50%, #b4fa8c 100%);
+        }
+
+        .brand-text { color: #1A6B2F; }
+
+        /* Nav 電話按鈕 */
+        .nav-cta {
+            background-color: #1A6B2F;
+            color: #fff;
+        }
+        .nav-cta:hover { background-color: #155a27; }
+
+        /* 教師區段背景 */
+        .teachers-section { background: #fff; border-bottom: 1px solid #d6f0d8; }
+
+        /* 教師卡片 */
+        .teacher-icon-bg { background-color: #c8eacb; }
+        .teacher-title { color: #1A6B2F; }
+        .teacher-btn {
+            background-color: #1A6B2F;
+            color: #fff;
+        }
+        .teacher-btn:hover { background-color: #155a27; }
+
+        /* Gallery 背景 */
+        .gallery-section { background: linear-gradient(180deg, #edf7ee 0%, #dff0df 100%); }
+
+        /* Info 區塊 */
+        .info-section {
+            background: linear-gradient(180deg, #1A6B2F 0%, #3A9E48 50%, #b4fa8c 100%);
+            color: #fff;
+        }
+        .info-contact-card {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .info-label { color: #b8e8b8; }
+        .info-border { border-bottom-color: rgba(255,255,255,0.15); }
+        .social-fb { background-color: rgba(255,255,255,0.2); }
+        .social-fb:hover { background-color: rgba(255,255,255,0.3); }
+        .social-yt { background-color: #dc2626; }
+        .social-yt:hover { background-color: #b91c1c; }
+
+        /* Footer */
+        .footer-section { background: #edf7ee; border-top: 1px solid #c8eacb; }
+
+        /* Hover animations */
+        .card-hover:hover { transform: translateY(-8px); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .nav-link:hover { color: #3A9E48; transition: 0.3s; }
+
+        .status-tag { font-size: 0.75rem; padding: 2px 8px; border-radius: 999px; }
+        .gallery-img { width: 100%; height: 300px; object-fit: cover; border-radius: 1.5rem; transition: 0.4s; }
+        .gallery-img:hover { transform: scale(1.02); filter: brightness(1.05); }
+
+        /* Heading accents */
+        .section-heading { color: #1A6B2F; }
+        .section-sub { color: #6b7280; }
+
+        /* Hero text shadow for readability on deep green */
+        .hero-text { text-shadow: 0 2px 16px rgba(0,40,0,0.28); }
+        .hero-btn-primary {
+            background: #fff;
+            color: #1A6B2F;
+        }
+        .hero-btn-primary:hover { background: #edf7ee; }
+        .hero-btn-secondary {
+            background: rgba(0,40,0,0.22);
+            border: 1.5px solid rgba(255,255,255,0.55);
+            color: #fff;
+        }
+        .hero-btn-secondary:hover { background: rgba(0,40,0,0.38); }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-10 h-10 rounded-full object-cover shadow-sm" style="border: 2px solid #fff; outline: 1.5px solid #1A6B2F; outline-offset: 1px;">
+                    <span class="text-2xl font-bold brand-text tracking-tight">三峽天龍教室</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8 text-sm lg:text-base">
+                    <a href="#home" class="nav-link font-medium">首頁</a>
+                    <a href="#teachers" class="nav-link font-medium">名師課程</a>
+                    <a href="#gallery" class="nav-link font-medium">活動花絮</a>
+                    <a href="#info" class="nav-link font-medium">營業資訊</a>
+                    <a href="tel:02-2672-2088" class="nav-cta px-5 py-2 rounded-full transition shadow-md">📞 02-2672-2088</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero: 由上到下 #1A6B2F → #3A9E48 → #7DC242 -->
+    <section id="home" class="gradient-bg pt-48 pb-32 px-4 text-center text-white">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-24 h-24 rounded-full object-cover shadow-2xl mb-8" style="border: 3px solid #fff; box-shadow: 0 0 0 5px rgba(255,255,255,0.35), 0 20px 40px rgba(0,0,0,0.15);">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-wide hero-text">三峽天龍教室</h1>
+            <p class="text-xl md:text-2xl mb-12 font-light opacity-90 hero-text">名師陣容 × 小班精緻教學 × 三峽在地深耕</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#teachers" class="hero-btn-primary px-10 py-4 rounded-xl font-bold shadow-xl transition">探索名師課程</a>
+                <a href="#gallery" class="hero-btn-secondary px-10 py-4 rounded-xl font-bold transition">查看活動花絮</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="teachers" class="teachers-section py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-4 section-heading">四大權威教學團隊</h2>
+            <p class="text-center section-sub mb-16">點擊下方教師按鈕，了解詳細課程綱要與教學特色</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-50 rounded-3xl p-8 shadow-sm border border-green-50 card-hover flex flex-col items-center text-center">
+                    <div class="w-20 h-20 teacher-icon-bg rounded-full flex items-center justify-center text-3xl mb-6">📐</div>
+                    <h3 class="text-2xl font-bold mb-2 teacher-title">楊碩數學</h3>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed">邏輯架構拆解<br>掌握高分關鍵題型</p>
+                    <a href="math.html" class="mt-auto w-full py-3 px-6 teacher-btn rounded-xl font-bold transition">查看課程</a>
+                </div>
+
+                <div class="bg-slate-50 rounded-3xl p-8 shadow-sm border border-green-50 card-hover flex flex-col items-center text-center">
+                    <div class="w-20 h-20 teacher-icon-bg rounded-full flex items-center justify-center text-3xl mb-6">🔤</div>
+                    <h3 class="text-2xl font-bold mb-2 teacher-title">琦遇英文</h3>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed">深度閱讀理解<br>寫作素養全方位培養</p>
+                    <a href="english.html" class="mt-auto w-full py-3 px-6 teacher-btn rounded-xl font-bold transition">查看課程</a>
+                </div>
+
+                <div class="bg-slate-50 rounded-3xl p-8 shadow-sm border border-green-50 card-hover flex flex-col items-center text-center">
+                    <div class="w-20 h-20 teacher-icon-bg rounded-full flex items-center justify-center text-3xl mb-6">✍️</div>
+                    <h3 class="text-2xl font-bold mb-2 teacher-title">陳伶國文</h3>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed">素養文本導讀<br>古文拆解核心功力</p>
+                    <a href="chinese.html" class="mt-auto w-full py-3 px-6 teacher-btn rounded-xl font-bold transition">查看課程</a>
+                </div>
+
+                <div class="bg-slate-50 rounded-3xl p-8 shadow-sm border border-green-50 card-hover flex flex-col items-center text-center">
+                    <div class="w-20 h-20 teacher-icon-bg rounded-full flex items-center justify-center text-3xl mb-6">🔬</div>
+                    <h3 class="text-2xl font-bold mb-2 teacher-title">楊易自然</h3>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed">理化生科整合<br>圖像化記憶實驗邏輯</p>
+                    <a href="science.html" class="mt-auto w-full py-3 px-6 teacher-btn rounded-xl font-bold transition">查看課程</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<section>
+<div class="bg-slate-50 rounded-3xl p-8 shadow-sm border border-green-50 card-hover flex flex-col items-center text-center">
+                    <div class="w-20 h-20 teacher-icon-bg rounded-full flex items-center justify-center text-3xl mb-6">✍️</div>
+                    <h3 class="text-2xl font-bold mb-2 teacher-title">課程規劃</h3>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed">高一 到 高三 課程綱要<br>學測衝刺班</p>
+                    <a href="course005.html" class="mt-auto w-full py-3 px-6 teacher-btn rounded-xl font-bold transition">查看課程安排</a>
+                </div>
+
+
+<div class="bg-slate-50 rounded-3xl p-8 shadow-sm border border-green-50 card-hover flex flex-col items-center text-center">
+                    <div class="w-20 h-20 teacher-icon-bg rounded-full flex items-center justify-center text-3xl mb-6">✍️</div>
+                    <h3 class="text-2xl font-bold mb-2 teacher-title">閃亮之星</h3>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed">天龍學子優異表現<br>繁星、學測好成績</p>
+                    <a href="gallery.html" class="mt-auto w-full py-3 px-6 teacher-btn rounded-xl font-bold transition">查看榜單</a>
+                </div>
+
+
+</section>
+    <section id="gallery" class="gallery-section py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold section-heading tracking-tight mb-4">活動精彩花絮</h2>
+                <p class="section-sub">記錄天龍學子的學習點滴與歡樂時刻</p>
+            </div>
+            
+            <!-- 上排：橫幅大圖 + 直式圖 -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+                <!-- 課堂教學照（橫式，佔2格） -->
+                <div class="sm:col-span-2 overflow-hidden rounded-2xl shadow-lg group relative">
+                    <img src="49797476_2188623294710676_5811076999002718208_n.jpg"
+                         class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+                         alt="課堂教學實況">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                        <span class="text-white text-sm font-medium">📚 課堂教學實況</span>
+                    </div>
+                </div>
+                <!-- 繁星上榜海報（直式） -->
+                <div class="overflow-hidden rounded-2xl shadow-lg group relative">
+                    <img src="654758623_4343106022630790_6988458543527770191_n.jpg"
+                         class="w-full h-72 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                         alt="115學年繁星推薦上榜率突破50%">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                        <span class="text-white text-sm font-medium">🏆 繁星推薦上榜率突破50%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 下排：直式大圖 + 橫式圖 -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <!-- 模擬面試指導（直式） -->
+                <div class="overflow-hidden rounded-2xl shadow-lg group relative">
+                    <img src="503140122_4050932648514797_1718465151903300998_n.jpg"
+                         class="w-full h-72 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                         alt="大學個人申請模擬面試指導">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                        <span class="text-white text-sm font-medium">🎓 大學個人申請模擬面試</span>
+                    </div>
+                </div>
+                <!-- 學生心得（橫式，佔2格） -->
+                <div class="sm:col-span-2 overflow-hidden rounded-2xl shadow-lg group relative">
+                    <img src="514064163_4076884952586233_8584545932850665770_n.jpg"
+                         class="w-full h-72 object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                         alt="優秀學生心得分享">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                        <span class="text-white text-sm font-medium">⭐ 學測56級分・多益920分 學生心得</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info: 由上到下 #1A6B2F → #3A9E48 → #7DC242 -->
+    <section id="info" class="info-section py-20 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">🕒 營業時間</h2>
+                <div class="space-y-4" style="color: #e0f5e0;">
+                    <div class="flex justify-between items-center py-3 info-border" style="border-bottom: 1px solid rgba(255,255,255,0.15)"><span>星期一</span><span class="font-mono">14:00 – 22:00</span></div>
+                    <div class="flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(255,255,255,0.15)"><span>星期二 <small class="status-tag" style="background:rgba(180,0,0,0.35);color:#fca5a5;">高中部休息</small></span><span class="font-mono">14:00 – 22:00</span></div>
+                    <div class="flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(255,255,255,0.15)"><span>星期三</span><span class="font-mono">14:00 – 22:00</span></div>
+                    <div class="flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(255,255,255,0.15)"><span>星期四</span><span class="font-mono">14:00 – 22:00</span></div>
+                    <div class="flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(255,255,255,0.15)"><span>星期五 <small class="status-tag" style="background:rgba(180,0,0,0.35);color:#fca5a5;">國中部休息</small></span><span class="font-mono">14:00 – 22:00</span></div>
+                    <div class="flex justify-between items-center py-3" style="border-bottom: 1px solid rgba(255,255,255,0.15)"><span>星期六</span><span class="font-mono">08:30 – 22:00</span></div>
+                    <div class="flex justify-between items-center py-3"><span>星期日</span><span class="font-mono">09:00 – 18:00</span></div>
+                </div>
+            </div>
+
+            <div class="info-contact-card p-10 rounded-3xl backdrop-blur-sm">
+                <h2 class="text-3xl font-bold mb-8">聯絡我們</h2>
+                <div class="space-y-8">
+                    <div><p class="info-label text-xs uppercase tracking-widest mb-1">Address</p><p class="text-lg">237新北市三峽區民生街119號</p></div>
+                    <div><p class="info-label text-xs uppercase tracking-widest mb-1">Phone</p><a href="tel:0226722088" class="text-2xl font-bold hover:text-white/80 transition">02 2672 2088</a></div>
+                    <div><p class="info-label text-xs uppercase tracking-widest mb-1">Email</p><a href="mailto:tianlongtl2@gmail.com" class="text-lg hover:text-white/80 transition">tianlongtl2@gmail.com</a></div>
+                    <div class="pt-6 flex flex-wrap gap-4">
+                        <a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="social-fb px-6 py-2.5 rounded-xl transition">Facebook</a>
+                        <a href="https://www.youtube.com/@天龍-f7m" target="_blank" class="social-yt px-6 py-2.5 rounded-xl transition">YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section py-12 text-center text-gray-500 text-sm">
+        <p>© 2026 三峽天龍教室. 專業升學輔導中心</p>
+    </footer>
+
+</body>
+</html>

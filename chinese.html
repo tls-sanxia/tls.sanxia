@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳伶國文 - 三峽天龍教室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .chi-bg { background: linear-gradient(180deg, #1A6B2F 0%, #3A9E48 50%, #b4fa8c 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.10); }
+        .feature-icon { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+        .quote-bar { border-left: 4px solid #3A9E48; }
+        .tag { background: #d1fae5; color: #065f46; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Nav -->
+    <nav class="p-5 shadow-sm bg-white sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-emerald-700 font-bold flex items-center gap-2 hover:text-emerald-900 transition">← 回到首頁</a>
+            <a href="tel:0226722088" class="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition">📞 預約試聽</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="chi-bg py-24 text-center text-white relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl mx-auto px-6">
+            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-1.5 rounded-full text-sm mb-6">
+                <span>🏫 三峽天龍教室</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4" style="text-shadow:0 2px 16px rgba(0,40,0,0.25);">陳伶國文</h1>
+            <p class="text-xl opacity-90 mb-3">解構古文美學，精準掌握閱讀素養關鍵</p>
+            <p class="text-base opacity-75">深耕高中學測 × 國中會考 × 三峽在地教學</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-6 space-y-10">
+
+        <!-- 教學理念 -->
+        <div class="bg-white rounded-2xl shadow-sm p-8 card-hover">
+            <h2 class="text-2xl font-bold text-emerald-800 mb-2 border-l-4 border-emerald-500 pl-4">教學理念</h2>
+            <p class="text-gray-500 text-sm mb-6">為什麼選擇陳伶國文？</p>
+            <div class="bg-emerald-50 rounded-xl p-6 quote-bar mb-6">
+                <p class="text-gray-700 leading-relaxed">陳伶國文主要深耕<strong>高中學測與國中會考</strong>，致力將枯燥的國文轉化為趣味的加分科目。強調透過<strong>邏輯思考、基礎能力強化</strong>，取代傳統死背題型，幫助學生建立系統化的國文思維。</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                    <div class="feature-icon w-10 h-10 rounded-full flex items-center justify-center text-lg shrink-0">🌱</div>
+                    <div>
+                        <p class="font-bold text-emerald-800 text-sm mb-1">打底而非衝刺</p>
+                        <p class="text-gray-600 text-sm">從根本建立能力，降低學習枯燥感，解決國文與時代脫節的困境。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                    <div class="feature-icon w-10 h-10 rounded-full flex items-center justify-center text-lg shrink-0">🧠</div>
+                    <div>
+                        <p class="font-bold text-emerald-800 text-sm mb-1">邏輯取代死背</p>
+                        <p class="text-gray-600 text-sm">培養邏輯思考，透過內容與實際情境的連結，提升閱讀理解力。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                    <div class="feature-icon w-10 h-10 rounded-full flex items-center justify-center text-lg shrink-0">📖</div>
+                    <div>
+                        <p class="font-bold text-emerald-800 text-sm mb-1">古文趣味化</p>
+                        <p class="text-gray-600 text-sm">將艱深國學常識轉化為有趣故事，結合生活化素材加深記憶。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                    <div class="feature-icon w-10 h-10 rounded-full flex items-center justify-center text-lg shrink-0">🎯</div>
+                    <div>
+                        <p class="font-bold text-emerald-800 text-sm mb-1">系統化思維</p>
+                        <p class="text-gray-600 text-sm">建立完整的國文學習架構，讓每個知識點都有脈絡可循。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 課程特色 -->
+        <div class="bg-white rounded-2xl shadow-sm p-8 card-hover">
+            <h2 class="text-2xl font-bold text-emerald-800 mb-2 border-l-4 border-emerald-500 pl-4">課程特色</h2>
+            <p class="text-gray-500 text-sm mb-6">涵蓋學測・會考・素養全方位</p>
+            <ul class="space-y-4 text-gray-700">
+                <li class="flex items-start gap-3 p-4 border border-emerald-100 rounded-xl hover:border-emerald-300 transition">
+                    <span class="text-emerald-500 text-lg mt-0.5">✔</span>
+                    <div><strong class="text-emerald-800">文言轉譯：</strong>將生硬古文轉化為生活語言，涵蓋高中學測核心古文，讓理解無障礙。</div>
+                </li>
+                <li class="flex items-start gap-3 p-4 border border-emerald-100 rounded-xl hover:border-emerald-300 transition">
+                    <span class="text-emerald-500 text-lg mt-0.5">✔</span>
+                    <div><strong class="text-emerald-800">素養考題：</strong>針對新型態長文本設計讀解策略，結合國學常識深度訓練。</div>
+                </li>
+                <li class="flex items-start gap-3 p-4 border border-emerald-100 rounded-xl hover:border-emerald-300 transition">
+                    <span class="text-emerald-500 text-lg mt-0.5">✔</span>
+                    <div><strong class="text-emerald-800">作文點評：</strong>提供一對一佳句優化與架構調整，強化寫作得分能力。</div>
+                </li>
+                <li class="flex items-start gap-3 p-4 border border-emerald-100 rounded-xl hover:border-emerald-300 transition">
+                    <span class="text-emerald-500 text-lg mt-0.5">✔</span>
+                    <div><strong class="text-emerald-800">會考總複習：</strong>專為國中會考設計的國文總複習課程，系統化整理重點題型。</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 學生見證 -->
+        <div class="bg-white rounded-2xl shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-emerald-800 mb-2 border-l-4 border-emerald-500 pl-4">學生真實見證</h2>
+            <p class="text-gray-500 text-sm mb-8">親身經歷，成績說話</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 見證 1 -->
+                <div class="rounded-2xl overflow-hidden border border-emerald-100 card-hover">
+                    <img src="470200382_122145920978364661_5401394388538541711_n.jpg"
+                         alt="蔡柏鴻同學見證 - 國文模考B++進步到會考A++"
+                         class="w-full object-cover object-top"
+                         style="max-height:420px;">
+                    <div class="p-5">
+                        <div class="flex flex-wrap items-center gap-2 mb-2">
+                            <span class="tag text-xs px-2 py-1 rounded-full font-bold">113年 · 三峽國中</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full font-bold">會考 A++</span>
+                        </div>
+                        <p class="font-bold text-emerald-900 mb-1">蔡柏鴻同學</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">國文從模考 B++ 進步到會考 A++。每次上課老師都會跟我討論遇到卡關的題目，就像在打遊戲闖關一樣，最後突破盲點取得佳績。</p>
+                    </div>
+                </div>
+                <!-- 見證 2 -->
+                <div class="rounded-2xl overflow-hidden border border-emerald-100 card-hover">
+                    <img src="484550622_1041928417954847_8922286923765489586_n.jpg"
+                         alt="林書浩同學見證 - 國文從B到A++"
+                         class="w-full object-cover object-top"
+                         style="max-height:420px;">
+                    <div class="p-5">
+                        <div class="flex flex-wrap items-center gap-2 mb-2">
+                            <span class="tag text-xs px-2 py-1 rounded-full font-bold">石門國中</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full font-bold">會考 A++</span>
+                        </div>
+                        <p class="font-bold text-emerald-900 mb-1">林書浩同學</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">國文從 B 一路進步到 A++。每週從大溪到三峽上現場課，段考從 70~80 分衝上 90 分，最終會考拿下 A++ 高分。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 自我檢測 -->
+        <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-8">
+            <h2 class="text-xl font-bold text-emerald-900 mb-5">📋 你有這些狀況嗎？</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                <div class="flex items-center gap-2 text-gray-700 text-sm"><span class="text-emerald-500 font-bold">□</span> 每個字都看得懂，但常常解讀不出意思</div>
+                <div class="flex items-center gap-2 text-gray-700 text-sm"><span class="text-emerald-500 font-bold">□</span> 覺得考試範圍廣泛，不知如何準備</div>
+                <div class="flex items-center gap-2 text-gray-700 text-sm"><span class="text-emerald-500 font-bold">□</span> 想在寫作拿高分卻不知如何下筆及鋪陳</div>
+                <div class="flex items-center gap-2 text-gray-700 text-sm"><span class="text-emerald-500 font-bold">□</span> 看不太懂文言文，也猜不出答案</div>
+                <div class="flex items-center gap-2 text-gray-700 text-sm"><span class="text-emerald-500 font-bold">□</span> 看題目沒耐心，速度也很慢</div>
+                <div class="flex items-center gap-2 text-gray-700 text-sm"><span class="text-emerald-500 font-bold">□</span> 各科成績都很好，只有國文很不穩定</div>
+            </div>
+            <p class="font-bold text-emerald-800 text-center text-base">凡是具備以上任一項狀況，請來陳伶國文尋找最佳解答！</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="space-y-3">
+            <a href="tel:0226722088" class="block w-full text-center bg-emerald-700 text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-800 transition shadow-lg shadow-emerald-200">
+                📞 立即預約國文試聽 · 02-2672-2088
+            </a>
+            <p class="text-center text-gray-400 text-sm">新北市三峽區民生街 119 號 3 樓</p>
+        </div>
+
+    </main>
+
+    <footer class="py-10 text-center text-gray-400 text-sm bg-white border-t border-emerald-50 mt-8">
+        <p>© 2026 三峽天龍教室 · 陳伶國文</p>
+    </footer>
+
+</body>
+</html>

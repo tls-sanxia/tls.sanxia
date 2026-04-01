@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楊碩數學 - 三峽天龍教室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .math-bg { background: linear-gradient(180deg, #1A6B2F 0%, #3A9E48 50%, #b4fa8c 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.10); }
+        .feature-icon { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+        .quote-bar { border-left: 4px solid #3A9E48; }
+        .review-card { background: #f0fdf4; border: 1px solid #bbf7d0; }
+        .star { color: #22c55e; }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <nav class="p-5 shadow-sm bg-white sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-emerald-700 font-bold hover:text-emerald-900 transition">← 回到首頁</a>
+            <a href="tel:0226722088" class="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition">📞 預約試聽</a>
+        </div>
+    </nav>
+    <header class="math-bg py-20 text-center text-white">
+        <h1 class="text-4xl font-bold mb-4">楊碩數學</h1>
+        <p class="text-xl opacity-90">打通邏輯任督二脈，讓數學不再是難題</p>
+    </header>
+    <main class="max-w-4xl mx-auto py-16 px-6 space-y-10">
+
+        <!-- 課程特色 -->
+        <div class="bg-white rounded-2xl shadow-sm p-8 card-hover">
+            <h2 class="text-2xl font-bold text-emerald-800 mb-2 border-l-4 border-emerald-500 pl-4">課程特色</h2>
+            <p class="text-gray-500 text-sm mb-6">邏輯架構拆解，掌握高分關鍵題型</p>
+            <ul class="space-y-4 text-gray-700">
+                <li class="flex items-start gap-3 p-4 border border-emerald-100 rounded-xl hover:border-emerald-300 transition">
+                    <span class="text-emerald-500 text-lg mt-0.5">✔</span>
+                    <div><strong class="text-emerald-800">觀念釐清：</strong>捨棄死背公式，從定義出發引導理解，建立扎實數學基礎。</div>
+                </li>
+                <li class="flex items-start gap-3 p-4 border border-emerald-100 rounded-xl hover:border-emerald-300 transition">
+                    <span class="text-emerald-500 text-lg mt-0.5">✔</span>
+                    <div><strong class="text-emerald-800">題型分類：</strong>系統化整理常考題型，掌握解題節奏，有效提升應試效率。</div>
+                </li>
+                <li class="flex items-start gap-3 p-4 border border-emerald-100 rounded-xl hover:border-emerald-300 transition">
+                    <span class="text-emerald-500 text-lg mt-0.5">✔</span>
+                    <div><strong class="text-emerald-800">小班解惑：</strong>確保每位學生的算式錯誤都能被即時更正，個別輔導不遺漏。</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 教學特色與評價 -->
+        <div class="bg-white rounded-2xl shadow-sm p-8 card-hover">
+            <h2 class="text-2xl font-bold text-emerald-800 mb-2 border-l-4 border-emerald-500 pl-4">教學特色與辦學成效</h2>
+            <p class="text-gray-500 text-sm mb-6">三峽深耕多年，成績有目共睹</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div class="flex flex-col items-start gap-3 p-5 bg-slate-50 rounded-xl">
+                    <div class="feature-icon w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0">🎨</div>
+                    <div>
+                        <p class="font-bold text-emerald-800 text-sm mb-1">以簡馭繁的授課風格</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">節奏快且幽默有趣，搭配彩色講義輔助教學，讓複雜觀念變得易懂好吸收。</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start gap-3 p-5 bg-slate-50 rounded-xl">
+                    <div class="feature-icon w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0">🏆</div>
+                    <div>
+                        <p class="font-bold text-emerald-800 text-sm mb-1">繁星推薦比例高</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">在三峽與北大特區深耕多年，小班制與個別輔導並行，繁星上榜率突破 50%。</p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start gap-3 p-5 bg-slate-50 rounded-xl">
+                    <div class="feature-icon w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0">📝</div>
+                    <div>
+                        <p class="font-bold text-emerald-800 text-sm mb-1">課業輔導</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">針對學生不理解的觀念與題型，輔導老師陪伴練習、觀念解題，給予加強輔導。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 學生真實評價 -->
+        <div class="bg-white rounded-2xl shadow-sm p-8">
+            <h2 class="text-2xl font-bold text-emerald-800 mb-2 border-l-4 border-emerald-500 pl-4">學生真實評價</h2>
+            <p class="text-gray-500 text-sm mb-8">來自北大高中等學生與家長的真實回饋</p>
+            <div class="space-y-5">
+
+                <div class="review-card rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="star">★★★★★</span>
+                        <span class="text-gray-400 text-xs ml-2">學生評價</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed quote-bar pl-4">"老師教學思路清楚，環境棒，交通方便，功課量適中，考前有輔導老師可問。"</p>
+                </div>
+
+                <div class="review-card rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="star">★★★★★</span>
+                        <span class="text-gray-400 text-xs ml-2">家長評價</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed quote-bar pl-4">"補習班舉辦高二升學講座，讓孩子和家長更清楚選填志願的方向，講師非常專業，針對目前各種科系的未來發展也做了補充說明。補習班也用心安排學生的讀書計畫，跟著補習班的腳步，孩子可以循序漸進，逐步完成複習計畫。"</p>
+                </div>
+
+                <div class="review-card rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="star">★★★★★</span>
+                        <span class="text-gray-400 text-xs ml-2">學生評價</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed quote-bar pl-4">"天龍的每個老師都很有趣，上課也很認真。數學老師會很詳細的介紹每一個步驟，使我們更好理解。提早準備學測數學讓我們有更多時間改善不足，天龍真的是一個學習環境很好的補習班，在這裡也能感受到其他補習班沒有的溫暖。"</p>
+                </div>
+<div class="review-card rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="star">★★★★★</span>
+                        <span class="text-gray-400 text-xs ml-2">學生評價</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed quote-bar pl-4">"我覺得楊丞老師很親切，精英班＋奪分班的課程程設計　我覺得非常棒，一個是教觀念、一個是刷題目的，在學習觀念後還可以練習，我覺得這種教學方式對我非常有用，第一次段考考完的成績也挺好的，所以我覺得天龍的數學課非常好。"</p>
+                </div>
+
+                <div class="review-card rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="star">★★★★★</span>
+                        <span class="text-gray-400 text-xs ml-2">學生評價</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed quote-bar pl-4">"天龍的數學有分兩種一堂是觀念講解，一堂是題目練習。精英班的楊承老師，把每一單元的公式，觀念，都講得很清楚，而不會很快。奪分班的小宇老師會練習很多不同的題目。有了這兩堂課的幫助，讓我在高中學習數學沒有那麼吃力"</p>
+                </div>
+
+
+                <div class="review-card rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="star">★★★★★</span>
+                        <span class="text-gray-400 text-xs ml-2">學生評價</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed quote-bar pl-4">"高一的時候數學考的不大理想找一間補習班，比較附近的補習班後來到天龍，這裡除了離家近也有許多學長姐推薦，老師上課都非常認真，讓我的數學成績突飛猛進。"</p>
+                </div>
+
+
+<div class="review-card rounded-2xl p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="star">★★★★★</span>
+                        <span class="text-gray-400 text-xs ml-2">學生評價</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed quote-bar pl-4">"數學對我來說是個完全喜歡不來的科目，每次寫數學都覺得很痛苦，所以就很不想算數學。但來天龍後我逐漸可以接受數學這個東西，老師教學很仔細會一步步帶著我們寫題目，也很親切，不懂的問題都可以問，解題也很多元，這樣我們有更多的練習機會，能接觸更多類型的題目。"</p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="space-y-3">
+            <a href="tel:0226722088" class="block w-full text-center bg-emerald-700 text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-800 transition shadow-lg shadow-emerald-200">
+                📞 立即預約數學試聽 · 02-2672-2088
+            </a>
+            <p class="text-center text-gray-400 text-sm">新北市三峽區民生街 119 號</p>
+        </div>
+
+    </main>
+    <footer class="py-10 text-center text-gray-400 text-sm bg-white border-t border-emerald-50 mt-8">
+        <p>© 2026 三峽天龍教室 · 楊碩數學</p>
+    </footer>
+</body>
+</html>
