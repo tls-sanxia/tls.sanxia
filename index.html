@@ -242,19 +242,129 @@
                 </div>
             </div>
 
-            <div class="info-contact-card p-10 rounded-3xl backdrop-blur-sm">
-                <h2 class="text-3xl font-bold mb-8">聯絡我們</h2>
-                <div class="space-y-8">
-                    <div><p class="info-label text-xs uppercase tracking-widest mb-1">Address</p><p class="text-lg">237新北市三峽區民生街119號</p></div>
-                    <div><p class="info-label text-xs uppercase tracking-widest mb-1">Phone</p><a href="tel:0226722088" class="text-2xl font-bold hover:text-white/80 transition">02 2672 2088</a></div>
-                    <div><p class="info-label text-xs uppercase tracking-widest mb-1">Email</p><a href="mailto:tianlongtl2@gmail.com" class="text-lg hover:text-white/80 transition">tianlongtl2@gmail.com</a></div>
-                    <div class="pt-6 flex flex-wrap gap-4">
-                        <a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="social-fb px-6 py-2.5 rounded-xl transition">Facebook</a>
-                        <a href="https://www.youtube.com/@天龍-f7m" target="_blank" class="social-yt px-6 py-2.5 rounded-xl transition">YouTube</a>
-                    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 品牌字體與平滑滾動 */
+        html { scroll-behavior: smooth; }
+        .brand-text { color: #1A6B2F; }
+
+        /* 導覽列連結動畫 */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #1A6B2F;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* 右側懸浮按鈕核心樣式 */
+        .side-float-wrapper {
+            position: fixed;
+            right: 0;
+            bottom: 15%;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 130px; /* 固定寬度 */
+            height: 48px;
+            padding: 0 15px;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 30px 0 0 30px; /* 左側圓角 */
+            box-shadow: -2px 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateX(85px); /* 初始隱藏大部分 */
+        }
+
+        /* 滑鼠移入效果：彈出顯示完整文字 */
+        .floating-btn:hover {
+            transform: translateX(0);
+            box-shadow: -4px 6px 15px rgba(0,0,0,0.3);
+        }
+
+        /* 各別按鈕顏色 */
+        .bg-qa { background-color: #f39c12; }
+        .bg-witness { background-color: #16a085; }
+        .bg-fb { background-color: #1877f2; }
+        .bg-yt { background-color: #ff0000; }
+
+        /* 響應式優化：手機版縮小按鈕 */
+        @media (max-width: 768px) {
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                padding: 0;
+                justify-content: center;
+                border-radius: 25px 0 0 25px;
+                transform: translateX(10px);
+            }
+            .btn-text { display: none; } /* 手機版隱藏文字，只留圖示/首字 */
+            .floating-btn::before { content: attr(data-short); font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="LOGO" class="w-10 h-10 rounded-full object-cover shadow-sm" style="border: 2px solid #fff; outline: 1.5px solid #1A6B2F; outline-offset: 1px;">
+                    <span class="text-2xl font-bold brand-text tracking-tight">三峽天龍教室</span>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link font-medium text-gray-700">首頁</a>
+                    <a href="#teachers" class="nav-link font-medium text-gray-700">名師課程</a>
+                    <a href="#gallery" class="nav-link font-medium text-gray-700">活動花絮</a>
+                    <a href="#info" class="nav-link font-medium text-gray-700">營業資訊</a>
+        <a href="https://tianlong-edu.pixnet.net/blog" target="_blank"  class="nav-link font-medium text-gray-700" >🏆天龍傳奇🏆學長姐見證</span>
+                    <a href="news.html" class="nav-link font-medium text-gray-700">最新消息</a>
+                    <a href="tel:02-2672-2088" class="bg-[#1A6B2F] text-white px-5 py-2 rounded-full hover:bg-green-800 transition shadow-md">📞 02-2672-2088</a>
                 </div>
             </div>
         </div>
+    </nav>
+
+    <div class="side-float-wrapper">
+        <a href="#faq" class="floating-btn bg-fb" data-short="❓">
+            <span class="mr-3">❓</span><span class="btn-text">常見問答</span>
+        </a>
+        <a href="#MAP" class="floating-btn bg-yt" data-short="MAP">
+            <span class="mr-3">MAP</span><span class="btn-text">地圖</span>
+        </a>
+        <a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="floating-btn bg-fb" data-short="f">
+            <span class="mr-3">f</span><span class="btn-text">Facebook</span>
+        </a>
+        <a href="https://www.youtube.com/@天龍-f7m" target="_blank" class="floating-btn bg-yt" data-short="▶">
+            <span class="mr-3">▶</span><span class="btn-text">YouTube</span>
+        </a>
+    </div>
+
+    <main class="pt-32 p-8">
+       
+        <p class="mt-4 text-gray-600">請嘗試捲動頁面或將滑鼠移至右側看懸浮按鈕效果。</p>
+        <div style="height: 2000px;"></div> </main>
+
+
     </section>
 
     <footer class="footer-section py-12 text-center text-gray-500 text-sm">
