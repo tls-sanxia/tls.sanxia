@@ -247,6 +247,87 @@
             </div>
 
        
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 品牌字體與平滑滾動 */
+        html { scroll-behavior: smooth; }
+        .brand-text { color: #1A6B2F; }
+
+        /* 導覽列連結動畫 */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #1A6B2F;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* 右側懸浮按鈕核心樣式 */
+        .side-float-wrapper {
+            position: fixed;
+            right: 0;
+            bottom: 15%;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 130px; /* 固定寬度 */
+            height: 48px;
+            padding: 0 15px;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 30px 0 0 30px; /* 左側圓角 */
+            box-shadow: -2px 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateX(85px); /* 初始隱藏大部分 */
+        }
+
+        /* 滑鼠移入效果：彈出顯示完整文字 */
+        .floating-btn:hover {
+            transform: translateX(0);
+            box-shadow: -4px 6px 15px rgba(0,0,0,0.3);
+        }
+
+        /* 各別按鈕顏色 */
+        .bg-qa { background-color: #f39c12; }
+        .bg-witness { background-color: #16a085; }
+        .bg-fb { background-color: #1877f2; }
+        .bg-yt { background-color: #ff0000; }
+
+        /* 響應式優化：手機版縮小按鈕 */
+        @media (max-width: 768px) {
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                padding: 0;
+                justify-content: center;
+                border-radius: 25px 0 0 25px;
+                transform: translateX(10px);
+            }
+            .btn-text { display: none; } /* 手機版隱藏文字，只留圖示/首字 */
+            .floating-btn::before { content: attr(data-short); font-size: 1.2rem; }
+        }
+    </style>
+</head>
 <body class="bg-gray-50">
 
     <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
@@ -290,7 +371,6 @@
         <p class="mt-4 text-gray-600">請嘗試捲動頁面或將滑鼠移至右側看懸浮按鈕效果。</p>
         <div style="height: 2000px;"></div> </main>
 
-    </section>
 
     <footer class="footer-section py-12 text-center text-gray-500 text-sm">
         <p>© 2026 三峽天龍教室. 專業升學輔導中心</p>
