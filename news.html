@@ -1,122 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>三峽天龍教育中心 - 高中全科專業輔導</title>
+    <title>三峽天龍教室 - 最新消息</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body { 
             font-family: 'Noto Sans TC', sans-serif; 
+            /* 變更背景色彩：由上到下 #1A6B2F -> #3A9E48 -> #b4fa8c */
             background: linear-gradient(180deg, #1A6B2F 0%, #3A9E48 50%, #b4fa8c 100%);
             background-attachment: fixed;
             min-height: 100vh;
         }
+        
+        /* 半透明卡片效果，確保在漸層背景上文字清晰 */
         .glass-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .tag { @apply text-xs px-3 py-1 rounded-full mb-3 inline-block font-bold text-white shadow-sm; }
-        .course-title { @apply text-xl font-bold mb-2 flex items-center gap-2; }
-        .course-desc { @apply text-gray-600 text-sm leading-relaxed; }
+
+        .news-box { border-left: 5px solid #ef4444; }
+        .course-box { border-left: 5px solid #10b981; }
+        
+        .tab-btn.active {
+            background-color: #10b981;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
     </style>
 </head>
-<body class="pb-10">
 
-    <nav class="p-4 shadow-md bg-white sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <div class="flex flex-col">
-                <span class="text-emerald-700 font-black text-xl tracking-wider">三峽天龍教育中心</span>
-                <span class="text-[10px] text-gray-500 font-bold uppercase">Tian-Long Education Center</span>
-            </div>
-            <div class="flex gap-3">
-                <a href="tel:0226722088" class="bg-emerald-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition">📞 02-2672-2088</a>
-                <a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="hidden md:block bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-700 transition">官方 Facebook</a>
+<body>
+    <nav class="p-5 shadow-sm bg-white sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-emerald-700 font-bold flex items-center gap-2 hover:text-emerald-900 transition">← 回到首頁</a>
+            <div class="flex gap-4">
+</div>
+            
+<a href="tel:0226722088" class="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition">📞 02-2672-2088</a>
+                     
+<a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">連結 Facebook</a>
             </div>
         </div>
     </nav>
 
-    <header class="max-w-6xl mx-auto px-5 py-16 text-center text-white">
-        <h1 class="text-4xl md:text-6xl font-black mb-6 drop-shadow-xl tracking-tight">115 學年度・戰士們集合</h1>
-        <p class="text-lg md:text-2xl opacity-95 font-medium">高一打基礎、高二分水嶺、高三學測衝刺，我們陪你紮穩根基、制霸全區！</p>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-5 space-y-12">
-
-        <div class="glass-card border-l-8 border-orange-500 p-8 md:p-12 rounded-[2rem] shadow-2xl">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                <div class="lg:col-span-1">
-                    <span class="tag bg-orange-600">學測全科總複習</span>
-                    <h2 class="text-4xl font-black text-gray-800 mb-6 leading-tight">高三學測戰隊<br><span class="text-orange-600">正式啟動 🚀</span></h2>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        各位高二升三的小戰士，學測倒數時鐘滴答作響！108課綱內容繁雜，要在暑假完成第一波超車。這不只是考實力，更是考<strong>「統整力」</strong>！
-                    </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3 text-gray-800 font-bold"><span class="w-2 h-2 bg-orange-500 rounded-full"></span> 📅 115年7月正式開跑</div>
-                        <div class="flex items-center gap-3 text-gray-800 font-bold"><span class="w-2 h-2 bg-orange-500 rounded-full"></span> 📍 專業師資全方位佈局</div>
-                    </div>
-                </div>
-                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="p-5 bg-orange-50 rounded-2xl border border-orange-100">
-                        <h3 class="course-title text-orange-800">📐 楊碩數學｜進度班</h3>
-                        <p class="text-[10px] font-bold text-orange-600 mb-2">115.7~115.10</p>
-                        <p class="course-desc">4 個月掃完所有必考點！精確掌握學測節奏，解決你算不完、想不通的數學恐懼。</p>
-                    </div>
-                    <div class="p-5 bg-orange-50 rounded-2xl border border-orange-100">
-                        <h3 class="course-title text-orange-800">📖 琦遇英文｜題型統整</h3>
-                        <p class="text-[10px] font-bold text-orange-600 mb-2">115.7~115.11</p>
-                        <p class="course-desc">大考題型全拆解！不只背單字，更教你解鎖閱讀測驗與高分寫作密碼。</p>
-                    </div>
-                    <div class="p-5 bg-orange-50 rounded-2xl border border-orange-100">
-                        <h3 class="course-title text-orange-800">🧪 學測自然｜四合一</h3>
-                        <p class="course-desc">物理+化學+地科+生物！打破學科界線，應對自然科最頭痛的實驗與跨科題型。</p>
-                    </div>
-                    <div class="p-5 bg-orange-50 rounded-2xl border border-orange-100">
-                        <h3 class="course-title text-orange-800">🗺️ 學測社會｜重點班</h3>
-                        <p class="course-desc">歷地公精華濃縮！老師幫你理出脈絡，拒絕死背，讓社會科成為你的優勢。</p>
-                    </div>
-                    <div class="p-5 bg-orange-50 rounded-2xl border border-orange-100 md:col-span-2">
-                        <h3 class="course-title text-orange-800">✍️ 學測國文｜彙整班</h3>
-                        <p class="course-desc">題型分析 + 國寫訓練！針對知性與感性寫作，由名師一對一幫你精準抓出給分關鍵。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="glass-card border-l-8 border-cyan-600 p-8 md:p-12 rounded-[2rem] shadow-2xl">
-            <div class="flex flex-col lg:flex-row gap-10">
-                <div class="lg:w-1/3">
-                    <span class="tag bg-cyan-600">升高二紮根</span>
-                    <h2 class="text-4xl font-black text-gray-800 mb-6 leading-tight">英數物強效整合<br><span class="text-cyan-700">暑期開跑 🚀</span></h2>
-                    <p class="text-gray-700 mb-6">高二就是學測的關鍵分水嶺！📈 108課綱內容又深又廣，你需要專業團隊陪你從暑假紮穩根基！</p>
-                    <div class="bg-cyan-50 p-5 rounded-2xl border border-cyan-100">
-                        <p class="text-cyan-800 font-bold mb-2">💻 數位同步：</p>
-                        <p class="text-gray-600 text-sm">特別採取【在班線上上課】模式，學習不中斷，確保吸收最完整。</p>
-                    </div>
-                </div>
-                <div class="lg:w-2/3 space-y-4">
-                    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                        <h3 class="course-title text-cyan-700">📐 楊碩數學｜邏輯建構</h3>
-                        <p class="course-desc">由 <strong>吳俅老師、楊丞老師</strong> 帶領 學測數學 整合課程。鎖定三角函數、向量等學測 5 星級必考單元。現場/同步雙軌學習，奪分最有效率。</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                        <h3 class="course-title text-cyan-700">📖 琦遇英文｜寫作核心</h3>
-                        <p class="course-desc"><strong>Robert 老師</strong> 精選課內文法與大考精華。包含長短篇作文訓練、看圖寫作與全真模考。</p>
-                        <p class="text-red-600 text-xs font-bold mt-2">⚠️ 老師叮嚀： 只有一次學測機會，錯過只能重考</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                        <h3 class="course-title text-cyan-700">⚡ 書豪物理｜進度超前</h3>
-                        <p class="course-desc"><strong>書豪老師</strong> 親授，從測量到牛頓運動定律。配合段考進度靈活調整，紮實應對物理挑戰。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
- <section class="max-w-5xl mx-auto px-5 py-12">
+    <section class="max-w-5xl mx-auto px-5 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             <div class="glass-card news-box p-8 rounded-3xl shadow-2xl flex flex-col justify-between">
@@ -183,32 +115,38 @@
         </div>
     </section>
 
-
-        <section class="glass-card p-10 rounded-[2rem] shadow-xl text-gray-800">
-            <h2 class="text-3xl font-black mb-8 border-b-2 pb-4 border-gray-100">立即預約諮詢</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <section class="max-w-5xl mx-auto px-5 py-10">
+        <div class="glass-card p-10 rounded-3xl shadow-xl text-gray-800">
+            <h2 class="text-3xl font-bold mb-8 border-b pb-4 border-gray-200">聯絡我們</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="space-y-6">
                     <div>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-emerald-700 font-black mb-2">Location</p>
-                        <p class="text-lg font-medium">新北市三峽區民生街119號3樓</p>
+                        <p class="text-xs uppercase tracking-widest text-emerald-700 font-bold mb-1">Address</p>
+                        <p class="text-lg">237新北市三峽區民生街119號3樓</p>
                     </div>
                     <div>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-emerald-700 font-black mb-2">Phone</p>
-                        <a href="tel:0226722088" class="text-3xl font-black text-gray-900 hover:text-emerald-600 transition tracking-tighter">02 2672 2088</a>
+                        <p class="text-xs uppercase tracking-widest text-emerald-700 font-bold mb-1">Phone</p>
+                        <a href="tel:0226722088" class="text-2xl font-bold hover:text-emerald-600 transition">02 2672 2088</a>
                     </div>
                 </div>
-                <div class="flex flex-col justify-end gap-4">
-                    <a href="https://www.facebook.com/tianlongTL1/" class="bg-blue-600 text-white text-center py-4 rounded-2xl font-bold hover:bg-blue-700 transition shadow-lg">官方 Facebook 私訊小編</a>
-                    <a href="https://www.youtube.com/@天龍-f7m" class="bg-red-600 text-white text-center py-4 rounded-2xl font-bold hover:bg-red-700 transition shadow-lg">YouTube 頻道看教學</a>
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-xs uppercase tracking-widest text-emerald-700 font-bold mb-1">Email</p>
+                        <a href="mailto:tianlongtl2@gmail.com" class="text-lg hover:text-emerald-600 transition">tianlongtl2@gmail.com</a>
+                    </div>
+                    <div class="flex gap-4">
+                        
+<a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition">Facebook</a>
+                        
+<a href="https://www.youtube.com/@天龍-f7m" target="_blank" class="bg-red-600 text-white px-6 py-2 rounded-xl hover:bg-red-700 transition">YouTube</a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
-
-    <footer class="mt-16 py-10 text-center text-emerald-900 font-bold text-sm">
-        <p>© 2026 三峽天龍教室. All Rights Reserved.</p>
-        <p class="opacity-60 text-xs mt-2">專業升學輔導中心 | 三峽民生街119號3樓</p>
+    <footer class="py-12 text-center text-emerald-900 font-medium text-sm">
+        <p>© 2026 三峽天龍教室. 專業升學輔導中心</p>
     </footer>
 
 </body>
