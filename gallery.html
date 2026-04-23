@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>閃亮之星 - 三峽天龍教室</title>
+    <title>☆閃亮之星☆ - 三峽天龍教室</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -10,32 +12,33 @@
         .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
         .honor-tag { background: rgba(16, 185, 129, 0.1); color: #065f46; }
+        /* 強制上排 6 張圖片比例一致 */
+        .feature-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+        /* 榮譽榜頭像比例 */
+        .avatar-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
     </style>
 </head>
 <body class="bg-slate-50">
-
     <nav class="p-5 shadow-sm bg-white sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <span class="text-emerald-700 font-bold text-xl">三峽天龍教室</span>
+            <span class="text-emerald-700 font-bold text-xl">三峽天龍教室</span>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-emerald-700 font-bold hover:text-emerald-900 transition">← 回到首頁</a>
+                <a href="tel:0226722088" class="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition">📞 預約試聽</a>
             </div>
-            <a href="tel:0226722088" class="bg-emerald-600 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition shadow-md">
-                📞 預約試聽
-            </a>
         </div>
     </nav>
- <header class="math-bg py-24 text-center text-white">
-        <h1 class="text-5xl font-bold mb-4 tracking-tight">閃亮之星</h1>
+
+    <header class="math-bg py-20 text-center text-white">
+        <h1 class="text-5xl font-bold mb-4 tracking-tight">☆閃亮之星☆</h1>
         <p class="text-xl opacity-90 font-light text-emerald-50">見證天龍學子的卓越成長與亮麗表現</p>
     </header>
 
     <main class="max-w-6xl mx-auto py-16 px-6">
-        
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
             <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
                 <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
-                    <img src="LINE_ALBUM_天龍傳奇看板_英數15級.jpg" alt="呂學銘" class="w-full object-cover">
+                    <img src="LINE_ALBUM_EM15.jpg" alt="呂學銘" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">學測滿級分</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">呂學銘 · 台大化工系</h3>
@@ -45,8 +48,8 @@
             </div>
 
             <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
-                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
-                    <img src="LINE_ALBUM_天龍傳奇看板_繁星1%.jpg" alt="黃媛琪" class="w-full object-cover">
+                <a href="https://youtu.be/HevlupQuhH0?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank" class="block flex-grow">
+                    <img src="LINE_ALBUM_S101.jpg" alt="黃媛琪" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">明德唯一錄取台大</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">黃媛琪 · 台大化工系</h3>
@@ -56,8 +59,8 @@
             </div>
 
             <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
-                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
-                    <img src="LINE_ALBUM_天龍傳奇看板_繁星1%2.jpg" alt="洪宇婕" class="w-full object-cover">
+                <a href="https://youtu.be/haEAQBVvYy0?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank" class="block flex-grow">
+                    <img src="LINE_ALBUM_S102.jpg" alt="洪宇婕" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">繁星 1%</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">洪宇婕 · 北醫藥學系</h3>
@@ -68,7 +71,7 @@
 
             <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
                 <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
-                    <img src="LINE_ALBUM_天龍傳奇看板_衝刺1.jpg" alt="張立翰" class="w-full object-cover">
+                    <img src="LINE_ALBUM_R01.jpg" alt="張立翰" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">進步 11 級分</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">張立翰 · 錦和高中</h3>
@@ -79,7 +82,7 @@
 
             <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
                 <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
-                    <img src="LINE_ALBUM_天龍傳奇看板_衝刺2.jpg" alt="楊育紘" class="w-full object-cover">
+                    <img src="LINE_ALBUM_R02.jpg" alt="楊育紘" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">進步 7 級分</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">楊育紘 · 中正物理系</h3>
@@ -90,7 +93,7 @@
 
             <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
                 <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
-                    <img src="LINE_ALBUM_天龍傳奇看板_衝刺3.jpg" alt="陳相蓉" class="w-full object-cover">
+                    <img src="LINE_ALBUM_R03.jpg" alt="陳相蓉" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">突破焦慮·大進步</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">陳相蓉 · 新店高中</h3>
@@ -99,8 +102,6 @@
                 </a>
             </div>
         </section>
-
-
 
         <section class="mt-20">
             <h2 class="text-3xl font-bold text-emerald-900 mb-10 text-center">國立大學榮譽榜</h2>
