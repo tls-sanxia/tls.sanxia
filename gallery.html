@@ -12,19 +12,19 @@
         .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
         .honor-tag { background: rgba(16, 185, 129, 0.1); color: #065f46; }
-        /* 統一圖片比例為 5:3 */
-        .img-ratio { aspect-ratio: 4 / 3; object-fit: cover; }
-        /* 榮譽榜頭像比例為 1:1 */
-        .avatar-ratio { aspect-ratio: 1 / 1; object-fit: cover; }
+        /* 強制上排 6 張圖片比例一致 */
+        .feature-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+        /* 榮譽榜頭像比例 */
+        .avatar-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
     </style>
 </head>
 <body class="bg-slate-50">
     <nav class="p-5 shadow-sm bg-white sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex items-center justify-between">
             <span class="text-emerald-700 font-bold text-xl">三峽天龍教室</span>
-            <div class="space-x-4">
+            <div class="flex items-center gap-4">
                 <a href="index.html" class="text-emerald-700 font-bold hover:text-emerald-900 transition">← 回到首頁</a>
-                <a href="tel:0226722088" class="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition inline-block">📞 預約試聽</a>
+                <a href="tel:0226722088" class="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-emerald-700 transition">📞 預約試聽</a>
             </div>
         </div>
     </nav>
@@ -35,10 +35,10 @@
     </header>
 
     <main class="max-w-6xl mx-auto py-16 px-6">
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100">
-                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block">
-                    <img src="LINE_ALBUM_EM15.jpg" alt="呂學銘" class="w-full img-ratio">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
+                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
+                    <img src="LINE_ALBUM_EM15.jpg" alt="呂學銘" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">學測滿級分</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">呂學銘 · 台大化工系</h3>
@@ -47,9 +47,9 @@
                 </a>
             </div>
 
-            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100">
-                <a href="https://youtu.be/HevlupQuhH0?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank" class="block">
-                    <img src="LINE_ALBUM_S101.jpg" alt="黃媛琪" class="w-full img-ratio">
+            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
+                <a href="https://youtu.be/HevlupQuhH0?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank" class="block flex-grow">
+                    <img src="LINE_ALBUM_S101.jpg" alt="黃媛琪" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">明德唯一錄取台大</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">黃媛琪 · 台大化工系</h3>
@@ -58,9 +58,9 @@
                 </a>
             </div>
 
-            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100">
-                <a href="https://youtu.be/haEAQBVvYy0?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank" class="block">
-                    <img src="LINE_ALBUM_S102.jpg" alt="洪宇婕" class="w-full img-ratio">
+            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
+                <a href="https://youtu.be/haEAQBVvYy0?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank" class="block flex-grow">
+                    <img src="LINE_ALBUM_S102.jpg" alt="洪宇婕" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">繁星 1%</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">洪宇婕 · 北醫藥學系</h3>
@@ -69,9 +69,9 @@
                 </a>
             </div>
 
-            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100">
-                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block">
-                    <img src="LINE_ALBUM_R01.jpg" alt="張立翰" class="w-full img-ratio">
+            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
+                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
+                    <img src="LINE_ALBUM_R01.jpg" alt="張立翰" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">進步 11 級分</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">張立翰 · 錦和高中</h3>
@@ -80,9 +80,9 @@
                 </a>
             </div>
 
-            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100">
-                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block">
-                    <img src="LINE_ALBUM_R02.jpg" alt="楊育紘" class="w-full img-ratio">
+            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
+                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
+                    <img src="LINE_ALBUM_R02.jpg" alt="楊育紘" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">進步 7 級分</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">楊育紘 · 中正物理系</h3>
@@ -91,9 +91,9 @@
                 </a>
             </div>
 
-            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100">
-                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block">
-                    <img src="LINE_ALBUM_R03.jpg" alt="陳相蓉" class="w-full img-ratio">
+            <div class="card-hover bg-white rounded-3xl overflow-hidden border border-emerald-100 flex flex-col">
+                <a href="https://www.youtube.com/@%E5%A4%A9%E9%BE%8D-f7m" target="_blank" class="block flex-grow">
+                    <img src="LINE_ALBUM_R03.jpg" alt="陳相蓉" class="feature-img">
                     <div class="p-6">
                         <span class="honor-tag px-3 py-1 rounded-full text-xs font-bold">突破焦慮·大進步</span>
                         <h3 class="text-xl font-bold text-emerald-900 mt-3">陳相蓉 · 新店高中</h3>
@@ -107,108 +107,27 @@
             <h2 class="text-3xl font-bold text-emerald-900 mb-10 text-center">國立大學榮譽榜</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <img src="STAR01.jpg" alt="林俞安" class="w-full avatar-ratio rounded-lg mb-4">
+                    <img src="STAR01.jpg" alt="林俞安" class="avatar-img rounded-lg mb-4">
                     <p class="font-bold text-emerald-800 text-lg">林俞安</p>
-                    <p class="text-sm text-gray-600">國立臺灣大學<br>園藝暨景觀學系</p>
+                    <p class="text-sm text-gray-600">國立臺灣大學園藝系</p>
                 </div>
                 <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
                     <a href="https://youtu.be/LmJDkx94myM" target="_blank">
-                        <img src="STAR02.jpg" alt="吳子宇" class="w-full avatar-ratio rounded-lg mb-4">
+                        <img src="STAR02.jpg" alt="吳子宇" class="avatar-img rounded-lg mb-4">
                         <p class="font-bold text-emerald-800 text-lg">吳子宇</p>
-                        <p class="text-sm text-gray-600">國立陽明交通大學<br>光電工程學系</p>
+                        <p class="text-sm text-gray-600">國立陽明交大光電系</p>
                     </a>
                 </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <img src="STAR05.jpg" alt="邱棋浚" class="w-full avatar-ratio rounded-lg mb-4">
-                    <p class="font-bold text-emerald-800 text-lg">邱棋浚</p>
-                    <p class="text-sm text-gray-600">國立臺灣大學<br>歷史學系</p>
                 </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <img src="STAR06.jpg" alt="盧奕秀" class="w-full avatar-ratio rounded-lg mb-4">
-                    <p class="font-bold text-emerald-800 text-lg">盧奕秀</p>
-                    <p class="text-sm text-gray-600">國立政治大學<br>風險管理與保險學系</p>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <img src="STAR09.jpg" alt="邱詩妘" class="w-full avatar-ratio rounded-lg mb-4">
-                    <p class="font-bold text-emerald-800 text-lg">邱詩妘</p>
-                    <p class="text-sm text-gray-600">國立成功大學<br>心理學系</p>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <img src="STAR10.jpg" alt="吳忠銘" class="w-full avatar-ratio rounded-lg mb-4">
-                    <p class="font-bold text-emerald-800 text-lg">吳忠銘</p>
-                    <p class="text-sm text-gray-600">國立陽明交通大學<br>土木工程學系</p>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <a href="https://youtu.be/HevlupQuhH0?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank">
-                        <img src="STAR12.jpg" alt="黃媛琪" class="w-full avatar-ratio rounded-lg mb-4">
-                        <p class="font-bold text-emerald-800 text-lg">黃媛琪</p>
-                        <p class="text-sm text-gray-600">國立臺灣大學<br>化學工程學系</p>
-                    </a>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <a href="https://youtu.be/CC50QhQYXUc?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank">
-                        <img src="STAR16.jpg" alt="陳奕安" class="w-full avatar-ratio rounded-lg mb-4">
-                        <p class="font-bold text-emerald-800 text-lg">陳奕安</p>
-                        <p class="text-sm text-gray-600">國立成功大學<br>成星招生丙組</p>
-                    </a>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <a href="https://youtu.be/qp5NnevrWnQ?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank">
-                        <img src="STAR13.jpg" alt="李亞庭" class="w-full avatar-ratio rounded-lg mb-4">
-                        <p class="font-bold text-emerald-800 text-lg">李亞庭</p>
-                        <p class="text-sm text-gray-600">國立中央大學<br>生命科學系</p>
-                    </a>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <a href="https://youtu.be/nHaW-MDfWpU" target="_blank">
-                        <img src="STAR14.jpg" alt="黃瑜安" class="w-full avatar-ratio rounded-lg mb-4">
-                        <p class="font-bold text-emerald-800 text-lg">黃瑜安</p>
-                        <p class="text-sm text-gray-600">國立清華大學<br>特殊教育學系</p>
-                    </a>
-                </div>
-            </div>
         </section>
 
-        <section class="mt-20">
-            <h2 class="text-3xl font-bold text-emerald-900 mb-10 text-center">醫藥學群榮譽榜</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <a href="https://youtu.be/haEAQBVvYy0?list=PLAyD5udOCN5FuoMKmllcmTMSzbSbXbZDY" target="_blank">
-                        <img src="STAR11.jpg" alt="洪宇婕" class="w-full avatar-ratio rounded-lg mb-4">
-                        <p class="font-bold text-emerald-800 text-lg">洪宇婕</p>
-                        <p class="text-sm text-gray-600">臺北醫學大學<br>藥學系</p>
-                    </a>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <img src="STAR04.jpg" alt="何晏瑜" class="w-full avatar-ratio rounded-lg mb-4">
-                    <p class="font-bold text-emerald-800 text-lg">何晏瑜</p>
-                    <p class="text-sm text-gray-600">臺北醫學大學<br>藥學系</p>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <img src="STAR07.jpg" alt="李羽瀞" class="w-full avatar-ratio rounded-lg mb-4">
-                    <p class="font-bold text-emerald-800 text-lg">李羽瀞</p>
-                    <p class="text-sm text-gray-600">中國醫藥大學<br>藥學系</p>
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-sm border border-emerald-50 card-hover text-center">
-                    <img src="STAR08.jpg" alt="周子濬" class="w-full avatar-ratio rounded-lg mb-4">
-                    <p class="font-bold text-emerald-800 text-lg">周子濬</p>
-                    <p class="text-sm text-gray-600">中國醫藥大學<br>藥學系</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="mt-20 max-w-2xl mx-auto space-y-10">
-            <div class="bg-emerald-50 rounded-3xl p-8 border border-emerald-100 text-center">
-                <h3 class="text-2xl font-bold mb-2">☆天龍學子好表現☆</h3>
-                <p class="text-gray-500 mb-8">繁星、學測好成績，每一顆都是閃亮的星星</p>
-                <a href="tel:0226722088" class="block w-full bg-[#1A6B2F] text-white py-4 rounded-xl font-bold hover:bg-[#3A9E48] shadow-lg transition">
-                    🚀 立即預約試聽 · 02-2672-2088
-                </a>
-            </div>
-            
-            <div class="text-center text-gray-500">
-                <p class="font-bold">三峽天龍教室 (楊碩數學 · 琦遇英文)</p>
-                <p class="text-sm">新北市三峽區民生街 119 號 3 樓</p>
+        <div class="mt-24 max-w-2xl mx-auto text-center">
+            <a href="tel:0226722088" class="block w-full bg-[#1A6B2F] text-white py-4 rounded-xl font-bold text-xl hover:bg-[#3A9E48] transition shadow-lg">
+                🚀 立即預約試聽 · 02-2672-2088
+            </a>
+            <div class="mt-8 text-gray-500">
+                <p class="font-bold text-lg">三峽天龍教室 (楊碩數學 · 琦遇英文)</p>
+                <p>新北市三峽區民生街 119 號 3 樓</p>
             </div>
         </div>
     </main>
