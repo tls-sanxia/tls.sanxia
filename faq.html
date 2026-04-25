@@ -13,7 +13,7 @@
             background-attachment: fixed;
             min-height: 100vh;
             margin: 0;
-            padding-top: 80px; /* 避免內容被固定導覽列遮住 */
+            padding-top: 80px;
         }
         
         .glass-card {
@@ -29,12 +29,21 @@
         }
 
         .social-fb { background-color: #1877F2; color: white; }
-        .social-fb:hover { background-color: #166fe5; }
         .social-yt { background-color: #FF0000; color: white; }
-        .social-yt:hover { background-color: #e60000; }
         
-        /* 頁首特殊背景色修正 */
         .header-bg { background-color: #1A6B2F; }
+
+        /* 優化卡片高度一致與懸停效果 */
+        .qa-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .qa-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
@@ -43,12 +52,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-3">
-                    <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-10 h-10 rounded-full object-cover border-2 border-green-700">
-                    <span class="text-2xl font-bold brand-text tracking-tight">三峽天龍教室</span>
+                    <div class="w-10 h-10 rounded-full bg-green-700 flex items-center justify-center text-white font-bold">天</div>
+                    <span class="text-xl md:text-2xl font-bold brand-text tracking-tight">三峽天龍教室</span>
                 </div>
 
-                  <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
-                <a href="#home" class="hover:text-green-700 font-medium transition">首頁</a>
+                  <a href="#home" class="hover:text-green-700 font-medium transition">首頁</a>
                 <a href="#teachers" class="hover:text-green-700 font-medium transition">名師課程</a>
                 <a href="#gallery" class="hover:text-green-700 font-medium transition">活動花絮</a>
                 <a href="#info" class="hover:text-green-700 font-medium transition">營業資訊</a>
@@ -87,74 +95,66 @@
             <div class="pt-4 border-t border-gray-100">
                 <a href="tel:02-2672-2088" class="block w-full text-center bg-green-600 text-white px-4 py-3 rounded-xl font-bold">撥打電話：02-2672-2088</a>
             </div>
+
         </div>
-    </div>
+    </nav>
 
-
-  <div id="mobile-menu" class="hidden md:hidden fixed w-full bg-white z-[90] shadow-lg">
-        <div class="px-4 pt-2 pb-6 space-y-1">
-            <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 rounded-md">首頁</a>
-            <a href="faq.html" class="block px-3 py-3 text-base font-medium text-green-700 bg-green-50 rounded-md">常見問題</a>
-            <a href="tel:02-2672-2088" class="block w-full text-center bg-green-600 text-white px-4 py-3 rounded-xl font-bold mt-4">撥打電話</a>
-        </div>
-    </div>
-
-    <header class="header-bg text-white py-16 md:py-24 px-4 text-center shadow-inner">
+    <header class="header-bg text-white py-12 md:py-20 px-6 text-center shadow-inner">
         <div class="max-w-4xl mx-auto">
-            <span class="text-yellow-400 font-bold tracking-widest uppercase text-sm">Expert Education</span>
-            <h1 class="text-3xl md:text-5xl font-bold mt-4 mb-6 leading-tight">
+            <span class="inline-block bg-green-800/50 text-yellow-400 px-4 py-1 rounded-full font-bold tracking-widest text-xs mb-4">EXPERT EDUCATION</span>
+            <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                 🎯 為什麼三峽、北大特區家長<br><span class="text-yellow-400">最後都選擇我們？</span>
             </h1>
-            <p class="text-lg opacity-90 max-w-2xl mx-auto">選擇補習班，不只是選老師，而是選擇一條讓孩子「穩定進步」的學習路徑。</p>
+            <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto">選擇補習班，不只是選老師，而是選擇一條讓孩子「穩定進步」的學習路徑。</p>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto py-12 px-6">
+    <main class="max-w-6xl mx-auto py-10 px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             
-            <div class="qa-card bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
+            <div class="qa-card bg-white p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
                 <span class="text-blue-600 font-black text-2xl">01</span>
                 <h3 class="text-xl font-bold mt-2 mb-4 text-gray-800">不是補很多，而是「真的學得會」</h3>
                 <p class="text-gray-600 leading-relaxed">我們將英文拆解為<strong>「句型邏輯＋語感建立」</strong>，讓學生從看不懂題目，到能獨立理解、正確作答。學習不再只是記憶，而是掌握方法。</p>
             </div>
 
-            <div class="qa-card bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
+            <div class="qa-card bg-white p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
                 <span class="text-blue-600 font-black text-2xl">02</span>
                 <h3 class="text-xl font-bold mt-2 mb-4 text-gray-800">留學背景 × 教學轉化能力</h3>
                 <p class="text-gray-600 leading-relaxed">留學不是重點，能不能讓學生進步才是。我們把真實語感轉化為考試技巧，讓單字、文法不再死背，而是能靈活運用。</p>
             </div>
 
-            <div class="qa-card bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
+            <div class="qa-card bg-white p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
                 <span class="text-blue-600 font-black text-2xl">03</span>
                 <h3 class="text-xl font-bold mt-2 mb-4 text-gray-800">為什麼學生會主動指定老師？</h3>
                 <p class="text-gray-600 leading-relaxed">因為成果穩定可見。段考進步、會考提升、長期累積實力——當成績持續成長，學生的自信心與選擇自然變得明確。</p>
             </div>
 
-            <div class="qa-card bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
+            <div class="qa-card bg-white p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
                 <span class="text-blue-600 font-black text-2xl">04</span>
                 <h3 class="text-xl font-bold mt-2 mb-4 text-gray-800">數學進步的關鍵，不是刷題量</h3>
                 <p class="text-gray-600 leading-relaxed">我們重視<strong>「解題思維建立」</strong>與<strong>「錯誤分析」</strong>。真正拉開差距的，是對核心觀念的理解深度，而不是做題的數量。</p>
             </div>
 
-            <div class="qa-card bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
+            <div class="qa-card bg-white p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
                 <span class="text-blue-600 font-black text-2xl">05</span>
                 <h3 class="text-xl font-bold mt-2 mb-4 text-gray-800">進階班的差異，在於「精準訓練」</h3>
                 <p class="text-gray-600 leading-relaxed">不是教更難，而是教得更有效率。透過系統化的重點整理與題型判斷訓練，幫助學生把實力穩定轉換成亮眼的分數。</p>
             </div>
 
-            <div class="qa-card bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
+            <div class="qa-card bg-white p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
                 <span class="text-blue-600 font-black text-2xl">06</span>
                 <h3 class="text-xl font-bold mt-2 mb-4 text-gray-800">為什麼名額總是提前額滿？</h3>
                 <p class="text-gray-600 leading-relaxed">因為課程有系統、有節奏。學生一旦進入正確的學習軌道，進步會持續發生，為了維護教學品質，名額相當有限。</p>
             </div>
 
-            <div class="qa-card bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
+            <div class="qa-card bg-white p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
                 <span class="text-blue-600 font-black text-2xl">07</span>
                 <h3 class="text-xl font-bold mt-2 mb-4 text-gray-800">不靠死背，是現在高分的關鍵</h3>
                 <p class="text-gray-600 leading-relaxed">素養考題已轉向理解與應用。我們訓練學生看懂題目本質，掌握邏輯架構，即使面對多變的題型也能穩定應對。</p>
             </div>
 
-            <div class="qa-card bg-white p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
+            <div class="qa-card bg-white p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-blue-600">
                 <span class="text-blue-600 font-black text-2xl">08</span>
                 <h3 class="text-xl font-bold mt-2 mb-4 text-gray-800">目標頂大，關鍵在「走對路」</h3>
                 <p class="text-gray-600 leading-relaxed">有效率的學習，不是做更多，而是做對的事。我們會引導學生將時間投入在最能提升成績的關鍵策略與弱點補強。</p>
@@ -163,11 +163,11 @@
         </div>
     </main>
 
-    <section class="py-16 px-6 text-center">
+    <section class="py-12 px-6 text-center">
         <div class="max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-3xl shadow-2xl">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-green-800">🚀 預約試聽 / 課程諮詢</h2>
-            <p class="text-lg text-gray-700 mb-8">熱門班級名額有限，建議提早安排評估，讓孩子進入對的學習節奏。</p>
-            <a href="https://line.me" class="inline-block bg-orange-500 hover:bg-orange-600 text-white text-xl font-bold py-4 px-10 rounded-full transition duration-300 shadow-xl transform hover:scale-105">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-green-800">🚀 預約試聽 / 課程諮詢</h2>
+            <p class="text-gray-700 mb-8">熱門班級名額有限，建議提早安排評估，讓孩子進入對的學習節奏。</p>
+            <a href="https://line.me" class="inline-block w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white text-xl font-bold py-4 px-10 rounded-full transition duration-300 shadow-xl transform hover:scale-105">
                 立即領取免費試聽名額
             </a>
         </div>
@@ -177,11 +177,9 @@
         <p class="opacity-80">© 2026 三峽天龍教室. 專業升學輔導中心</p>
     </footer>
 
-   
-
     <script>
         const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu-container');
         const menuIcon = document.getElementById('menu-icon');
 
         menuBtn.addEventListener('click', () => {
@@ -195,9 +193,9 @@
             }
         });
 
-        // 點擊後關閉選單
-        const menuLinks = mobileMenu.querySelectorAll('a');
-        menuLinks.forEach(link => {
+        // 點擊選單項目後自動收起
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
