@@ -179,30 +179,32 @@
         <p class="opacity-80">© 2026 三峽天龍教室. 專業升學輔導中心</p>
     </footer>
 
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu-container');
-        const menuIcon = document.getElementById('menu-icon');
+   <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu'); // 修正：ID 從 mobile-menu-container 改為 mobile-menu
+    const menuIcon = document.getElementById('menu-icon');
 
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
-            }
-        });
+    menuBtn.addEventListener('click', () => {
+        // 切換選單顯示/隱藏
+        mobileMenu.classList.toggle('hidden');
+        
+        // 檢查是否隱藏，並更換對應的圖示（漢堡線 或 X）
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+        } else {
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+        }
+    });
 
-        // 點擊選單項目後自動收起
-        const navLinks = mobileMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
-            });
+    // 點擊選單項目後自動收起
+    const navLinks = mobileMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
         });
-    </script>
+    });
+</script>
 </body>
 </html>
