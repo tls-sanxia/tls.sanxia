@@ -302,6 +302,48 @@
         YouTube
     </a>
 </div>
+ /* 側邊容器 */
+.fixed-social-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* 基礎按鈕樣式 */
+.btn-float {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, sans-serif;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 顏色定義 */
+.fb { background: #1877F2; }
+.yt { background: #FF0000; }
+
+/* 懸停效果：亮化並向左彈出 */
+.btn-float:hover {
+    transform: translateX(-8px) scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* 針對小螢幕優化：改為只顯示圖示或縮小 */
+@media (max-width: 480px) {
+    .fixed-social-sidebar { right: 10px; }
+    .btn-float { padding: 10px 16px; font-size: 14px; }
+}
 </body>
 
 </html>
