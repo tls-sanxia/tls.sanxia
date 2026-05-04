@@ -9,42 +9,41 @@
     <style>
         body { 
             font-family: 'Noto Sans TC', sans-serif; 
-            background: linear-gradient(180deg, #1A6B2F 0%, #3A9E48 50%, #b4fa8c 100%);
+            background: linear-gradient(180deg, #1A6B2F 0%, #3A9E48 50%, #f0fdf4 100%);
             background-attachment: fixed;
             min-height: 100vh;
-            /* 確保導覽列高度(80px)不遮擋內容 */
-            padding-top: 100px; 
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
-        .grade-card { transition: transform 0.2s; }
-        .grade-card:hover { transform: translateY(-5px); }
+        .grade-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .grade-card:hover { transform: translateY(-5px); shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
         
         /* 管理員模式專屬樣式 */
         .admin-only { display: none; }
-        body.admin-mode .admin-only { display: block; }
-        
-        nav { z-index: 100; }
+        body.admin-mode .admin-only { display: block; animation: fadeIn 0.4s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="pb-10">
-
-    <!-- 導覽列導航 -->
-    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-3">
-                    <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-10 h-10 rounded-full object-cover" style="border: 2px solid #fff; outline: 1.5px solid #1A6B2F; outline-offset: 1px;">
-                    <span class="text-2xl font-bold tracking-tight text-green-800">三峽天龍教室</span>
-                </div>
+<body class="pt-24 pb-12">
+    
+   <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center gap-3">
+                <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-10 h-10 rounded-full object-cover" style="border: 2px solid #fff; outline: 1.5px solid #1A6B2F; outline-offset: 1px;">
+                <span class="text-2xl font-bold brand-text tracking-tight text-green-800">三峽天龍教室</span>
+            </div>
 
             <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
-                
-             <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
+              
+                 <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
                 <a href="https://tianlong-edu.pixnet.net/blog" target="_blank" class="hover:text-green-700 font-medium transition">🏆天龍傳奇🏆</a>
                 
                 <!-- 最新消息 下拉選單連結 -->
@@ -64,6 +63,51 @@
                     </div>
                 </div>
 
+            <a href="faq.html" class="hover:text-green-700 font-medium transition">常見問題</a> 
+                  <a href="#home" class="hover:text-green-700 font-medium transition">首頁</a>
+                <a href="#teachers" class="hover:text-green-700 font-medium transition">名師課程</a>
+                <a href="#gallery" class="hover:text-green-700 font-medium transition">活動花絮</a>
+                <a href="#info" class="hover:text-green-700 font-medium transition">營業資訊</a>
+                        <a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="social-fb px-6 py-2.5 rounded-xl transition">Facebook</a>
+                        <a href="https://youtube.com/channel/UC5cws6RPAUvKdTsYJmYCj2A?si=PHjPshvmNgszfv-r" target="_blank" class="social-yt px-6 py-2.5 rounded-xl transition">YouTube</a>
+
+                    <a href="tel:02-2672-2088" class="bg-green-600 text-white px-4 py-2 rounded-full text-sm hover:bg-green-700 transition shadow-sm">📞 02-2672-2088</a>
+                </div>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none p-2">
+                    <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
+        <div class="px-4 pt-2 pb-6 space-y-1">
+            <a href="https://tianlong-edu.pixnet.net/blog" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 rounded-md">🏆天龍傳奇🏆</a>
+            
+            <!-- 手機版展開選單 -->
+            <div class="border-l-2 border-green-100 ml-2">
+                <a href="news.html" class="block px-3 py-2 text-base font-bold text-green-700">最新消息</a>
+                <a href="early-bird.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 早鳥優惠</a>
+                <a href="homework.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 每週作業</a>
+            </div>
+            <a href="faq.html" class="hover:text-green-700 font-medium transition">常見問題</a>
+               <a href="#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">首頁</a>
+            <a href="#teachers" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">名師課程</a>
+            <a href="#gallery" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">活動花絮</a>
+            <a href="#info" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">營業資訊</a>
+                       <a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="social-fb px-6 py-2.5 rounded-xl transition">Facebook</a>
+                        <a href="https://youtube.com/channel/UC5cws6RPAUvKdTsYJmYCj2A?si=_JWk3O3k_hWw5FFm" target="_blank" class="social-yt px-6 py-2.5 rounded-xl transition">YouTube</a>
+            <div class="pt-4 border-t border-gray-100">
+                <a href="tel:02-2672-2088" class="block w-full text-center bg-green-600 text-white px-4 py-3 rounded-xl font-bold">撥打電話：02-2672-2088</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
 <head>
     <meta charset="UTF-8">
