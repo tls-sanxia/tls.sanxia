@@ -112,84 +112,172 @@
     </div>
 
 <style>
-  /* 容器設定：在電腦版水平並排 */
-  .notice-container {
+  /* 模擬 IG 背景 */
+  .ig-feed-container {
+    background-color: #fafafa;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    padding: 10px;
-    font-family: "Microsoft JhengHei", sans-serif;
-  }
-
-  /* 區塊基礎樣式 */
-  .notice-box {
-    flex: 1;
-    min-width: 280px; /* 當寬度小於此值會自動換行，達成手機版垂直排列 */
-    border-radius: 12px;
     padding: 20px;
-    color: #333;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  /* 三種顏色設定 */
-  .box-blue { background-color: #e3f2fd; border-left: 8px solid #2196f3; }
-  .box-green { background-color: #e8f5e9; border-left: 8px solid #4caf50; }
-  .box-orange { background-color: #fff3e0; border-left: 8px solid #ff9800; }
-
-  /* 標題與文字樣式 */
-  .notice-box h2 {
-    margin-top: 0;
-    color: #1a237e;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    padding-bottom: 10px;
+  /* IG 卡片樣式 */
+  .ig-card {
+    background: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    width: 350px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
-  .class-group {
+
+  /* 卡片頂部 (模擬帳號列) */
+  .ig-card-header {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .ig-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 12px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    padding: 2px;
+  }
+  
+  .ig-avatar-inner {
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
     font-weight: bold;
-    color: #d32f2f;
-    margin-top: 15px;
+    color: #262626;
+  }
+
+  .ig-username {
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+  }
+
+  /* 卡片主體 (內容區) */
+  .ig-card-body {
+    padding: 16px;
+    min-height: 180px;
+  }
+
+  .ig-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #262626;
     display: block;
   }
-  .content {
-    line-height: 1.6;
-    margin-bottom: 10px;
+
+  .ig-content-item {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.5;
   }
-  hr { border: 0; border-top: 1px dashed #ccc; margin: 15px 0; }
+
+  .class-tag {
+    font-weight: 700;
+    color: #00376b; /* 類似連結的藍色 */
+    margin-right: 5px;
+  }
+
+  .status-alert {
+    background: #fff0f0;
+    color: #ed4956; /* IG 警示紅 */
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  /* 卡片底部 (互動列) */
+  .ig-card-footer {
+    padding: 10px 16px;
+    border-top: 1px solid #efefef;
+    color: #8e8e8e;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  /* 針對高三開課的特別強調 */
+  .special-promo {
+    background: linear-gradient(to right, #fdfcfb 0%, #e2d1c3 100%);
+  }
 </style>
 
-<div class="notice-container">
+<div class="ig-feed-container">
   
-  <!-- 高一班級區塊 -->
-  <div class="notice-box box-blue">
-    <h2>＜高一班級＞</h2>
-    <span class="class-group">高一英文班</span>
-    <p class="content">5/4 作業：U4－U6（R2）總複習完成<br><strong>5/11 停課</strong></p>
-    <hr>
-    <span class="class-group">高一精英班</span>
-    <p class="content"><strong>5/9 停課</strong></p>
-    <hr>
-    <span class="class-group">高一資優班</span>
-    <p class="content">5/1 作業：組合機率 二＋三 回<br><strong>5/8 停課</strong></p>
+  <!-- 高一卡片 -->
+  <div class="ig-card">
+    <div class="ig-card-header">
+      <div class="ig-avatar"><div class="ig-avatar-inner">G1</div></div>
+      <span class="ig-username">天龍教育 _ 高一專區</span>
+    </div>
+    <div class="ig-card-body">
+      <span class="ig-title">📌 本週課務公告</span>
+      <div class="ig-content-item">
+        <span class="class-tag">#高一英文</span> 5/4 作業：U4－U6 總複習<br>
+        <span class="status-alert">🚨 5/11 停課</span>
+      </div>
+      <div class="ig-content-item">
+        <span class="class-tag">#高一精英</span> <span class="status-alert">🚨 5/9 停課</span>
+      </div>
+      <div class="ig-content-item">
+        <span class="class-tag">#高一資優</span> 5/1 作業：組合機率(二)(三)<br>
+        <span class="status-alert">🚨 5/8 停課</span>
+      </div>
+    </div>
+    <div class="ig-card-footer">5月4日</div>
   </div>
 
-  <!-- 高二班級區塊 -->
-  <div class="notice-box box-green">
-    <h2>＜高二班級＞</h2>
-    <span class="class-group">高二英文班</span>
-    <p class="content">5/2 作業：單字總複習 完成<br>5/8 考試：總複習考</p>
-    <hr>
-    <span class="class-group">高二數學班</span>
-    <p class="content"><strong>5/10 停課</strong></p>
+  <!-- 高二卡片 -->
+  <div class="ig-card">
+    <div class="ig-card-header">
+      <div class="ig-avatar"><div class="ig-avatar-inner">G2</div></div>
+      <span class="ig-username">天龍教育 _ 高二專區</span>
+    </div>
+    <div class="ig-card-body">
+      <span class="ig-title">📝 學習進度提醒</span>
+      <div class="ig-content-item">
+        <span class="class-tag">#高二英文</span> 5/2 作業：單字總複習<br>
+        <span style="color: #262626;">🔥 5/8 總複習考（務必準時）</span>
+      </div>
+      <div class="ig-content-item">
+        <span class="class-tag">#高二數學</span> <span class="status-alert">🚨 5/10 停課</span>
+      </div>
+    </div>
+    <div class="ig-card-footer">5月4日</div>
   </div>
 
-  <!-- 高三班級區塊 -->
-  <div class="notice-box box-orange">
-    <h2>＜高三班級＞</h2>
-    <p class="content" style="font-weight: bold; color: #e65100;">分科數學複習課程 開課</p>
-    <p class="content">
-      <strong>數甲：</strong><br>114年5月24日(六) 至 114年7月5日(六)<br>
-      <br>
-      <strong>數乙：</strong><br>114年5月25日(日) 至 114年7月6日(日)
-    </p>
+  <!-- 高三卡片 -->
+  <div class="ig-card special-promo">
+    <div class="ig-card-header">
+      <div class="ig-avatar"><div class="ig-avatar-inner">G3</div></div>
+      <span class="ig-username">天龍教育 _ 升學衝刺</span>
+    </div>
+    <div class="ig-card-body">
+      <span class="ig-title">🚀 分科數學複習班開課</span>
+      <p style="font-size: 14px; color: #444;">
+        🎯 <b>數甲：</b>5/24(六) - 7/5(六)<br>
+        🎯 <b>數乙：</b>5/25(日) - 7/6(日)
+      </p>
+      <p style="font-size: 13px; color: #8e8e8e;">#分科測驗 #倒數衝刺 #數學滿級分</p>
+    </div>
+    <div class="ig-card-footer">剛剛發佈</div>
   </div>
 
 </div>
