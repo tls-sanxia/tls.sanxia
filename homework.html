@@ -3,157 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>三峽天龍教育中心 - 雲端作業系統</title>
+    <title>每週作業、訊息公告 - 三峽天龍教室</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans TC', sans-serif; background: #f0fdf4; }
-        .admin-only { display: none; }
-        body.admin-mode .admin-only { display: block; }
-        .grade-card { background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); overflow: hidden; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; background: #f4f6f8; }
+        .brand-text { color: #1A6B2F; }
+        .social-fb { background: #1877f2; color: white; }
+        .social-yt { background: #ff0000; color: white; }
+        .tabs { display: flex; background: white; border-bottom: 1px solid #eee; }
+        .tab { flex: 1; text-align: center; padding: 12px; cursor: pointer; color: #666; transition: 0.2s; }
+        .tab:hover { background: #f5f5f5; }
+        .active { color: #1A6B2F; border-bottom: 2px solid #1A6B2F; font-weight: 700; }
+        .card { background: white; border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: 0.2s; }
+        .card:hover { transform: translateY(-2px); }
+        button { border: none; cursor: pointer; border-radius: 10px; padding: 6px 10px; }
+        .add { background: #1A6B2F; color: white; }
+        .delete { background: #ff4d4f; color: white; margin-top: 10px; }
+        .lock { position: fixed; top: 80px; right: 12px; background: white; border: 1px solid #eee; padding: 8px 12px; border-radius: 999px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 100; }
+        #adminPanel { display: none; background: white; padding: 12px; border-radius: 16px; margin-bottom: 12px; border: 1px solid #ddd; }
+        .class-section { margin-bottom: 25px; }
+        .class-title { font-size: 16px; font-weight: 700; margin: 10px 0; padding: 6px 10px; border-radius: 10px; display: inline-block; }
+        .grade1 { background:#e8f7ec; color:#1A6B2F; }
+        .grade2 { background:#e8f1ff; color:#1e5aa8; }
+        .grade3 { background:#ffe8e8; color:#b3261e; }
     </style>
 </head>
-<body class="p-4 md:p-10">
+<body>
 
-    <header class="max-w-7xl mx-auto text-center mb-10">
-        <h1 class="text-3xl font-bold text-green-800">📚 雲端作業公告系統</h1>
-        <button onclick="toggleAdmin()" class="text-xs text-green-600/50 hover:text-green-600 mt-2">管理員登入</button>
-    </header>
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center gap-3">
+                <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-10 h-10 rounded-full object-cover" style="border: 2px solid #fff; outline: 1.5px solid #1A6B2F; outline-offset: 1px;">
+                <span class="text-2xl font-bold brand-text tracking-tight text-green-800">三峽天龍教室</span>
+            </div>
 
-    <!-- 管理者面板 -->
-    <div id="adminPanel" class="admin-only max-w-7xl mx-auto bg-white p-6 rounded-2xl shadow-xl border-2 border-green-500 mb-10">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-            <div>
-                <label class="block text-sm font-bold text-gray-600 mb-1">年級</label>
-                <select id="gradeSelect" class="w-full border rounded-lg p-2">
-                    <option value="1">高一</option>
-                    <option value="2">高二</option>
-                    <option value="3">高三</option>
-                </select>
+            <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
+              
+                 <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
+                <a href="https://tianlong-edu.pixnet.net/blog" target="_blank" class="hover:text-green-700 font-medium transition">🏆天龍傳奇🏆</a>
+                
+                <!-- 最新消息 下拉選單連結 -->
+                <div class="relative group inline-block">
+                    <a href="https://tls-sanxia.github.io/tls.sanxia/news.html" class="hover:text-green-700 font-medium transition flex items-center">
+                        最新消息
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <!-- 下拉選單內容 -->
+                    <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="py-2">
+                            <a href="https://tls-sanxia.github.io/tls.sanxia/early-bird.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">早鳥優惠</a>
+                            <a href="https://tls-sanxia.github.io/tls.sanxia/homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">每週作業</a>
+                        </div>
+                    </div>
+                </div>
+
+            <a href="https://tls-sanxia.github.io/tls.sanxia/faq.html" class="hover:text-green-700 font-medium transition">常見問題</a> 
+                  <a href="https://tls-sanxia.github.io/tls.sanxia/index.html#home" class="hover:text-green-700 font-medium transition">首頁</a>
+                <a href="https://tls-sanxia.github.io/tls.sanxia/index.html#teachers" class="hover:text-green-700 font-medium transition">名師課程</a>
+                <a href="https://tls-sanxia.github.io/tls.sanxia/index.html#gallery" class="hover:text-green-700 font-medium transition">活動花絮</a>
+                <a href="https://tls-sanxia.github.io/tls.sanxia/index.html#info" class="hover:text-green-700 font-medium transition">營業資訊</a>
+                     
+                    <a href="tel:02-2672-2088" class="bg-green-600 text-white px-4 py-2 rounded-full text-sm hover:bg-green-700 transition shadow-sm">📞 02-2672-2088</a>
+                </div>
             </div>
-            <div class="md:col-span-2">
-                <label class="block text-sm font-bold text-gray-600 mb-1">內容</label>
-                <input type="text" id="taskInput" placeholder="輸入作業內容..." class="w-full border rounded-lg p-2">
+
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none p-2">
+                    <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
-            <button onclick="addTask()" class="bg-green-600 text-white font-bold py-2 rounded-lg hover:bg-green-700">發布公告</button>
         </div>
     </div>
 
-    <!-- 作業展示區 -->
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="grade-card border-t-4 border-emerald-500">
-            <div class="p-4 bg-emerald-50 font-bold">高一作業</div>
-            <ul id="list-1" class="p-4 space-y-2"></ul>
-        </div>
-        <div class="grade-card border-t-4 border-blue-500">
-            <div class="p-4 bg-blue-50 font-bold">高二作業</div>
-            <ul id="list-2" class="p-4 space-y-2"></ul>
-        </div>
-        <div class="grade-card border-t-4 border-rose-500">
-            <div class="p-4 bg-rose-50 font-bold">高三作業</div>
-            <ul id="list-3" class="p-4 space-y-2"></ul>
-        </div>
-    </div>
-
-    <!-- 1. 引入 Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database-compat.js"></script>
-
-    <script>
-        // 2. Firebase 設定 (請在此處貼上您在 Firebase 控制台取得的資訊)
-        const firebaseConfig = {
-            apiKey: "您的API_KEY",
-            authDomain: "您的專案ID.firebaseapp.com",
-            databaseURL: "您的資料庫URL",
-            projectId: "您的專案ID",
-            storageBucket: "您的專案ID.appspot.com",
-            messagingSenderId: "您的傳送ID",
-            appId: "您的APP_ID"
-        };
-
-        // 初始化
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        const ADMIN_PASSWORD = "3019";
-
-        // 3. 監聽雲端資料庫
-        function listenToTasks() {
-            const isAdmin = document.body.classList.contains('admin-mode');
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
+        <div class="px-4 pt-2 pb-6 space-y-1">
+            <a href="https://tianlong-edu.pixnet.net/blog" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 rounded-md">🏆天龍傳奇🏆</a>
             
-            database.ref('tasks').on('value', (snapshot) => {
-                const allData = snapshot.val() || {};
-                [1, 2, 3].forEach(grade => {
-                    const listElement = document.getElementById(`list-${grade}`);
-                    listElement.innerHTML = "";
-                    
-                    const tasks = allData[grade] ? Object.entries(allData[grade]) : [];
-                    // 排序：最新的在上面
-                    tasks.sort((a, b) => b[1].timestamp - a[1].timestamp);
+            <!-- 手機版展開選單 -->
+            <div class="border-l-2 border-green-100 ml-2">
+                <a href="https://tls-sanxia.github.io/tls.sanxia/news.html" class="block px-3 py-2 text-base font-bold text-green-700">最新消息</a>
+                <a href="https://tls-sanxia.github.io/tls.sanxia/early-bird.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 早鳥優惠</a>
+                <a href="https://tls-sanxia.github.io/tls.sanxia/homework.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 每週作業</a>
+            </div>
+            <a href="https://tls-sanxia.github.io/tls.sanxia/faq.html" class="hover:text-green-700 font-medium transition">常見問題</a>
+               <a href="https://tls-sanxia.github.io/tls.sanxia/index.html#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">首頁</a>
+            <a href="https://tls-sanxia.github.io/tls.sanxia/index.html#teachers" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">名師課程</a>
+            <a href="https://tls-sanxia.github.io/tls.sanxia/index.html#gallery" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">活動花絮</a>
+            <a href="https://tls-sanxia.github.io/tls.sanxia/index.html#info" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">營業資訊</a>
+                      
+            <div class="pt-4 border-t border-gray-100">
+                <a href="tel:02-2672-2088" class="block w-full text-center bg-green-600 text-white px-4 py-3 rounded-xl font-bold">撥打電話：02-2672-2088</a>
+            </div>
+        </div>
+    </div>
+</nav>
+       
 
-                    if (tasks.length === 0) {
-                        listElement.innerHTML = "<li class='text-gray-400 text-sm italic'>暫無內容</li>";
-                        return;
-                    }
+    <header class="text-center mt-24 py-6 font-bold text-xl">📢 每週作業、訊息公告 📢</header>
+    
+    <div class="flex justify-center gap-4 mb-6">
+        <a href="https://www.facebook.com/tianlongTL1/" target="_blank" class="social-fb px-6 py-2.5 rounded-xl transition">Facebook</a>
+        <a href="https://youtube.com/channel/UC5cws6RPAUvKdTsYJmYCj2A" target="_blank" class="social-yt px-6 py-2.5 rounded-xl transition">YouTube</a>
+    </div>
 
-                    tasks.forEach(([key, item]) => {
-                        listElement.innerHTML += `
-                            <li class="flex justify-between items-center p-2 bg-gray-50 rounded border">
-                                <div>
-                                    <p class="text-[10px] text-gray-400">${item.date}</p>
-                                    <p class="text-gray-700">${item.content}</p>
-                                </div>
-                                ${isAdmin ? `<button onclick="deleteTask(${grade}, '${key}')" class="text-red-400 hover:text-red-600 text-xl">×</button>` : ''}
-                            </li>
-                        `;
-                    });
-                });
-            });
-        }
+<style>
+  /* 容器設定：在電腦版水平並排 */
+  .notice-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    font-family: "Microsoft JhengHei", sans-serif;
+  }
 
-        // 4. 新增資料
-        function addTask() {
-            const grade = document.getElementById('gradeSelect').value;
-            const content = document.getElementById('taskInput').value;
-            if (!content) return alert("請輸入內容");
+  /* 區塊基礎樣式 */
+  .notice-box {
+    flex: 1;
+    min-width: 280px; /* 當寬度小於此值會自動換行，達成手機版垂直排列 */
+    border-radius: 12px;
+    padding: 20px;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
 
-            const newTask = {
-                content: content,
-                date: new Date().toLocaleDateString('zh-TW'),
-                timestamp: Date.now()
-            };
+  /* 三種顏色設定 */
+  .box-blue { background-color: #e3f2fd; border-left: 8px solid #2196f3; }
+  .box-green { background-color: #e8f5e9; border-left: 8px solid #4caf50; }
+  .box-orange { background-color: #fff3e0; border-left: 8px solid #ff9800; }
 
-            database.ref(`tasks/${grade}`).push(newTask).then(() => {
-                document.getElementById('taskInput').value = "";
-            });
-        }
+  /* 標題與文字樣式 */
+  .notice-box h2 {
+    margin-top: 0;
+    color: #1a237e;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 10px;
+  }
+  .class-group {
+    font-weight: bold;
+    color: #d32f2f;
+    margin-top: 15px;
+    display: block;
+  }
+  .content {
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  hr { border: 0; border-top: 1px dashed #ccc; margin: 15px 0; }
+</style>
 
-        // 5. 刪除資料
-        function deleteTask(grade, key) {
-            if (confirm("確定刪除？")) {
-                database.ref(`tasks/${grade}/${key}`).remove();
-            }
-        }
+<div class="notice-container">
+  
+  <!-- 高一班級區塊 -->
+  <div class="notice-box box-blue">
+    <h2>＜高一班級＞</h2>
+    <span class="class-group">高一英文班</span>
+    <p class="content">5/4 作業：U4－U6（R2）總複習完成<br><strong>5/11 停課</strong></p>
+    <hr>
+    <span class="class-group">高一精英班</span>
+    <p class="content"><strong>5/9 停課</strong></p>
+    <hr>
+    <span class="class-group">高一資優班</span>
+    <p class="content">5/1 作業：組合機率 二＋三 回<br><strong>5/8 停課</strong></p>
+  </div>
 
-        // 管理權限切換
-        function toggleAdmin() {
-            if (document.body.classList.contains('admin-mode')) {
-                document.body.classList.remove('admin-mode');
-                sessionStorage.removeItem('isTeacherAdmin');
-            } else {
-                const pass = prompt("請輸入管理碼：");
-                if (pass === ADMIN_PASSWORD) {
-                    document.body.classList.add('admin-mode');
-                    sessionStorage.setItem('isTeacherAdmin', 'true');
-                }
-            }
-            listenToTasks(); // 重新整理顯示
-        }
+  <!-- 高二班級區塊 -->
+  <div class="notice-box box-green">
+    <h2>＜高二班級＞</h2>
+    <span class="class-group">高二英文班</span>
+    <p class="content">5/2 作業：單字總複習 完成<br>5/8 考試：總複習考</p>
+    <hr>
+    <span class="class-group">高二數學班</span>
+    <p class="content"><strong>5/10 停課</strong></p>
+  </div>
 
-        // 初始執行
-        if (sessionStorage.getItem('isTeacherAdmin') === 'true') {
-            document.body.classList.add('admin-mode');
-        }
-        listenToTasks();
-    </script>
-</body>
-</html>
+  <!-- 高三班級區塊 -->
+  <div class="notice-box box-orange">
+    <h2>＜高三班級＞</h2>
+    <p class="content" style="font-weight: bold; color: #e65100;">分科數學複習課程 開課</p>
+    <p class="content">
+      <strong>數甲：</strong><br>114年5月24日(六) 至 114年7月5日(六)<br>
+      <br>
+      <strong>數乙：</strong><br>114年5月25日(日) 至 114年7月6日(日)
+    </p>
+  </div>
+
+</div>
