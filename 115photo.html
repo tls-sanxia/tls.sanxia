@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高三生的天龍傳奇故事 - 繁星榮耀榜</title>
+    <!-- 引入 Tailwind CSS 用於快速佈局與優化 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1A6B2F;
+            --primary-mid: #3A9E48;
+            --primary-light: #b4fa8c;
+            --accent-orange: #e67e22;
+        }
+
+        body { 
+            font-family: 'Noto Sans TC', "Microsoft JhengHei", sans-serif; 
+            scroll-behavior: smooth;
+            background-color: #fcfdfb;
+        }
+
+        /* 優化後的主體漸層：更深邃、專業的綠色調 */
+        .hero-gradient { 
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 50%, #f0fff0 100%); 
+        }
+
+        .brand-text { color: var(--primary-dark); }
+        
+        /* 故事卡片懸停效果 */
+        .story-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .story-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        /* 下拉選單顯示邏輯 */
+        .group:hover .group-hover\:visible {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="pt-20">
+
+<!-- 合併優化後的導航欄 -->
+<nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center gap-3">
+                <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-10 h-10 rounded-full object-cover" style="border: 2px solid #fff; outline: 1.5px solid #1A6B2F; outline-offset: 1px;">
+                <span class="text-2xl font-bold brand-text tracking-tight text-green-800">三峽天龍教室</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
+              
+                 <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
+                <a href="https://tianlong-edu.pixnet.net/blog" target="_blank" class="hover:text-green-700 font-medium transition">🏆天龍傳奇🏆</a>
+                
+                <!-- 最新消息 下拉選單連結 -->
+                <div class="relative group inline-block">
+                    <a href="news.html" class="hover:text-green-700 font-medium transition flex items-center">
+                        最新消息
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <!-- 下拉選單內容 -->
+                    <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="py-2">
+                            <a href="early-bird.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">早鳥優惠</a>
+                            <a href="homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">每週作業</a>
+                        </div>
+                    </div>
+                </div>
+
+            <a href="faq.html" class="hover:text-green-700 font-medium transition">常見問題</a> 
+                     
+                       <!-- 活動花絮 下拉選單連結 -->
+                <div class="relative group inline-block">
+                    <a href="news.html" class="hover:text-green-700 font-medium transition flex items-center">
+                        活動花絮
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <!-- 下拉選單內容 -->
+                    <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="py-2">
+                            <a href="#gallery" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">活動花絮</a>
+                            <a href="115photo.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">榮耀時刻</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#teachers" class="hover:text-green-700 font-medium transition">名師課程</a>
+                  <a href="#home" class="hover:text-green-700 font-medium transition">首頁</a>
+                <a href="#info" class="hover:text-green-700 font-medium transition">營業資訊</a>
+                     
+                    <a href="tel:02-2672-2088" class="bg-green-600 text-white px-4 py-2 rounded-full text-sm hover:bg-green-700 transition shadow-sm">📞 02-2672-2088</a>
+                </div>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none p-2">
+                    <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
+        <div class="px-4 pt-2 pb-6 space-y-1">
+            <a href="https://tianlong-edu.pixnet.net/blog" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 rounded-md">🏆天龍傳奇🏆</a>
+            
+            <!-- 手機版展開選單 -->
+            <div class="border-l-2 border-green-100 ml-2">
+                <a href="news.html" class="block px-3 py-2 text-base font-bold text-green-700">最新消息</a>
+                <a href="early-bird.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 早鳥優惠</a>
+                <a href="homework.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 每週作業</a>
+            </div>
+            <a href="faq.html" class="hover:text-green-700 font-medium transition">常見問題</a>
+             <!-- 手機版展開選單 -->
+            <div class="border-l-2 border-green-100 ml-2">
+                <a href="#gallery" class="block px-3 py-2 text-base font-bold text-green-700">活動花絮</a>
+           <a href="#gallery" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 活動花絮</a>
+                <a href="115photo.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 榮耀時刻</a>
+            
+                <a href="#teachers" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">名師課程</a>
+
+                           <a href="#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">首頁</a>
+            <a href="#info" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">營業資訊</a>
+                      
+            <div class="pt-4 border-t border-gray-100">
+                <a href="tel:02-2672-2088" class="block w-full text-center bg-green-600 text-white px-4 py-3 rounded-xl font-bold">撥打電話：02-2672-2088</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- 頂部標題區 -->
+<header class="hero-gradient py-20 px-4 text-center text-white">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-black mb-6 drop-shadow-md">高三生的天龍傳奇故事</h1>
+        <p class="text-lg md:text-xl opacity-90 font-light tracking-wide leading-relaxed">
+            看見改變的力量：從不及格到翻倍進步，從迷惘到錄取頂尖大學。<br>
+            每一份榮耀，都是天龍師生共同奮鬥的結晶。
+        </p>
+    </div>
+</header>
+
+<!-- 故事網格 -->
+<div class="max-w-7xl mx-auto px-4 py-16">
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 卡片 1 -->
+        <article class="story-card bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div class="aspect-[4/3] overflow-hidden">
+                <img src="115STAR05.jpg" alt="張又仁" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full mb-3">繁星 1% 傳奇</span>
+                <h3 class="text-xl font-bold text-gray-800 mb-1">張又仁</h3>
+                <p class="text-orange-600 font-bold text-sm mb-4">清水高中 ➜ 國立成功大學</p>
+                <p class="text-gray-600 text-sm leading-relaxed">感謝天龍師長在迷惘時的建議，以及數學老師深夜不間斷的解惑陪伴。</p>
+            </div>
+        </article>
+
+        <!-- 卡片 2 -->
+        <article class="story-card bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div class="aspect-[4/3] overflow-hidden">
+                <img src="115STAR06.jpg" alt="張鈞凱" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full mb-3">六年紮根計畫</span>
+                <h3 class="text-xl font-bold text-gray-800 mb-1">張鈞凱</h3>
+                <p class="text-orange-600 font-bold text-sm mb-4">明德高中 ➜ 國立成功大學</p>
+                <p class="text-gray-600 text-sm leading-relaxed">精選分班教學讓數學深度進階，英文課的單字延伸介紹讓背單字更有效率。</p>
+            </div>
+        </article>
+
+        <!-- 卡片 3 -->
+        <article class="story-card bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div class="aspect-[4/3] overflow-hidden">
+                <img src="115STAR02.jpg" alt="簡志楷" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full mb-3">資工思維導向</span>
+                <h3 class="text-xl font-bold text-gray-800 mb-1">簡志楷</h3>
+                <p class="text-orange-600 font-bold text-sm mb-4">明德高中 ➜ 國立成功大學</p>
+                <p class="text-gray-600 text-sm leading-relaxed">Robert 老師拆解長句的邏輯思維，對追求理性的我來說簡直是救星。</p>
+            </div>
+        </article>
+
+        <!-- 卡片 4 -->
+        <article class="story-card bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div class="aspect-[4/3] overflow-hidden">
+                <img src="115STAR03.jpg" alt="吳秉樺" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full mb-3">自信重塑成長</span>
+                <h3 class="text-xl font-bold text-gray-800 mb-1">吳秉樺</h3>
+                <p class="text-orange-600 font-bold text-sm mb-4">辭修高中 ➜ 國立中正大學</p>
+                <p class="text-gray-600 text-sm leading-relaxed">從缺乏信心到理解句型結構，體會到學習重在長期累積而非單純考試。</p>
+            </div>
+        </article>
+
+        <!-- 卡片 5 -->
+        <article class="story-card bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div class="aspect-[4/3] overflow-hidden">
+                <img src="115STAR04.jpg" alt="吳柏勳" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full mb-3">全校最高榮譽</span>
+                <h3 class="text-xl font-bold text-gray-800 mb-1">吳柏勳</h3>
+                <p class="text-orange-600 font-bold text-sm mb-4">辭修高中 ➜ 英文頂標 14 級分</p>
+                <p class="text-gray-600 text-sm leading-relaxed">掌握題型背後的邏輯，拿下全校最高分。找到了屬於自己的讀書節奏。</p>
+            </div>
+        </article>
+
+        <!-- 卡片 6 -->
+        <article class="story-card bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <div class="aspect-[4/3] overflow-hidden">
+                <img src="115STAR01.jpg" alt="程意晴" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full mb-3">逆襲翻轉分</span>
+                <h3 class="text-xl font-bold text-gray-800 mb-1">程意晴</h3>
+                <p class="text-orange-600 font-bold text-sm mb-4">明德高中 ➜ 國立臺南大學</p>
+                <p class="text-gray-600 text-sm leading-relaxed">從英文 59 分被當到校排躍進。在天龍找到了精實的課堂氛圍，翻轉成績。</p>
+            </div>
+        </article>
+    </main>
+</div>
+
+<script>
+    // 手機版選單切換腳本
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // 點擊選單項目後自動關閉
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+</script>
+
+</body>
+</html>
