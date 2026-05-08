@@ -241,96 +241,141 @@
     background: linear-gradient(to right, #fdfcfb 0%, #e2d1c3 100%);
   }
 </style>
- <section>
-<div class="ig-container">
-  <!-- 高一卡片 -->
-  <div class="ig-card">
-    <div class="ig-card-header">
-      <div class="ig-avatar"><div class="ig-avatar-inner">G10</div></div>
-      <span class="ig-username">天龍教育 _ 高一專區</span>
+<style>
+  /* 基礎容器設定 */
+  .ig-container {
+    display: flex;
+    flex-wrap: wrap; /* 在小螢幕時自動換行 */
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  /* 卡片寬度調整：在大螢幕時三格並列 */
+  .ig-card {
+    flex: 1;
+    min-width: 300px; /* 確保卡片不會縮太小 */
+    max-width: 400px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  /* 圖片區塊：改用 Grid 讓四張圖更整齊 */
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); 
+    gap: 16px;
+    width: 100%;
+  }
+
+  /* 圖片自適應 */
+  .image-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  /* 文字與標籤樣式補充 */
+  .ig-card-header { display: flex; align-items: center; margin-bottom: 10px; font-weight: bold; }
+  .ig-avatar { margin-right: 10px; width: 40px; height: 40px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .status-alert { color: #ed4956; font-weight: bold; }
+  .class-tag { font-weight: bold; padding: 2px 6px; border-radius: 4px; color: white; display: inline-block; margin-bottom: 4px; }
+  .ig-content-item { margin-bottom: 12px; border-bottom: 1px solid #fafafa; padding-bottom: 8px; }
+  
+  /* 標籤顏色 */
+  .🟢高一英文 { background: #4caf50; }
+  .🟠高一數學精英班 { background: #ff9800; }
+  .🟡高一數學資優班 { background: #ffeb3b; color: #333; }
+  /* ...以此類推 */
+</style>
+
+<section>
+  <!-- 卡片區塊：三張並列 -->
+  <div class="ig-container">
+    <!-- 高一卡片 -->
+    <div class="ig-card">
+      <div class="ig-card-header">
+        <div class="ig-avatar"><div class="ig-avatar-inner">G10</div></div>
+        <span class="ig-username">天龍教育 _ 高一專區</span>
+      </div>
+      <div class="ig-card-body">
+        <span class="ig-title">📌 本週課務公告</span>
+        <div class="ig-content-item">
+          <span class="class-tag" style="background:#4caf50;">🟢高一英文</span> <br>5/18 <br>作業檢查：U4－U6 總複習<br>
+          小考: U7單字例句<br>
+          <span class="status-alert">🚨 5/11 停課</span>
+        </div>
+        <div class="ig-content-item">
+          <span class="class-tag" style="background:#ff9800;">🟠高一數學精英班</span> <br><span class="status-alert">🚨 5/9 停課</span>
+        </div>
+        <div class="ig-content-item">
+          <span class="class-tag" style="background:#fbc02d;">🟡高一數學資優班</span><br> 
+          <span class="status-alert">🚨 5/8 停課</span><br>
+          5/15 <br>作業檢查：組合機率(二)(三)
+        </div>
+        <div class="ig-content-item">
+          <span class="class-tag" style="background:#2196f3;">🔵高一自然</span> <br>5/9 <br>作業檢查：P.37-38<br>
+          <span class="status-alert">考試：平拋 </span>
+        </div>
+        <div class="ig-content-item">
+          <span class="class-tag" style="background:#9c27b0;">🟣高一二國文</span> <br>5/9 無作業<br>
+          <span class="status-alert">🚨 5/10、5/17 停課 </span>
+        </div>
+      </div>
+      <div class="ig-card-footer">5月8日</div>
     </div>
-    <div class="ig-card-body">
-      <span class="ig-title">📌 本週課務公告</span>
-      <div class="ig-content-item">
-        <span class="class-tag">🟢高一英文</span> <br>5/18 <br>作業檢查：U4－U6 總複習<br>
-        小考: U7單字例句<br>
-        <span class="status-alert">🚨 5/11 停課</span>
+
+    <!-- 高二卡片 -->
+    <div class="ig-card">
+      <div class="ig-card-header">
+        <div class="ig-avatar"><div class="ig-avatar-inner">G11</div></div>
+        <span class="ig-username">天龍教育 _ 高二專區</span>
       </div>
-      <div class="ig-content-item">
-        <span class="class-tag">🟠高一數學精英班</span> <br><span class="status-alert">🚨 5/9 停課</span>
+      <div class="ig-card-body">
+        <span class="ig-title">📝 學習進度提醒</span>
+        <div class="ig-content-item">
+          <span class="class-tag" style="background:#4caf50;">🟢高二英文</span> <br>5/8 <br>作業檢查：語法總複習<br>
+          <span style="color: #262626;">單字總複習考（ 5/2 已考試的不用考 ）</span>
+        </div>
+        <div class="ig-content-item">
+          <span class="class-tag" style="background:#fbc02d;">🟡高二數學</span><br> <span class="status-alert">🚨 5/10 停課</span>
+        </div>
+        <div class="ig-content-item">
+          <span class="class-tag" style="background:#2196f3;">🔵高二物理</span> <br>5/4 無課後作業<br>
+          <span class="status-alert">🚨 5/11 停課</span>
+        </div>
       </div>
-      <div class="ig-content-item">
-        <span class="class-tag">🟡高一數學資優班</span><br> 
-        <span class="status-alert">🚨 5/8 停課</span><br>
-        5/15 <br>作業檢查：組合機率(二)(三)
-      </div>
-      <div class="ig-content-item">
-        <span class="class-tag">🔵高一自然</span> <br>5/9 <br>作業檢查：P.37-38<br>
-        <span class="status-alert">考試：平拋 </span>
-      </div>
-      <div class="ig-content-item">
-        <span class="class-tag">🟣高一二國文</span> <br>5/9 無作業<br>
-        <span class="status-alert">🚨 5/10、5/17 停課 </span>
-      </div>
+      <div class="ig-card-footer">5月8日</div>
     </div>
-    <div class="ig-card-footer">5月8日</div>
+
+    <!-- 高三卡片 -->
+    <div class="ig-card special-promo">
+      <div class="ig-card-header">
+        <div class="ig-avatar"><div class="ig-avatar-inner">G12</div></div>
+        <span class="ig-username">天龍教育 _ 升學衝刺</span>
+      </div>
+      <div class="ig-card-body">
+        <span class="ig-title">🚀 分科數學複習班開課</span>
+        <p style="font-size: 14px; color: #444;">
+          <br>上課時間 <br>
+          🎯 <b>數甲：</b>5/24(六) - 7/5(六)<br>
+          🎯 <b>數乙：</b>5/25(日) - 7/6(日)
+        </p>
+        <p style="font-size: 13px; color: #00DD00;">#分科測驗 #倒數衝刺 #數學滿級分</p>
+      </div>
+      <div class="ig-card-footer">剛剛發佈</div>
+    </div>
   </div>
 
-  <!-- 高二卡片 -->
-  <div class="ig-card">
-    <div class="ig-card-header">
-      <div class="ig-avatar"><div class="ig-avatar-inner">G11</div></div>
-      <span class="ig-username">天龍教育 _ 高二專區</span>
-    </div>
-    <div class="ig-card-body">
-      <span class="ig-title">📝 學習進度提醒</span>
-      <div class="ig-content-item">
-        <span class="class-tag">🟢高二英文</span> <br>5/8 <br>作業檢查：語法總複習<br>
-        <span style="color: #262626;">單字總複習考（ 5/2 已考試的不用考 ）</span>
-      </div>
-      <div class="ig-content-item">
-        <span class="class-tag">🟡高二數學</span><br> <span class="status-alert">🚨 5/10 停課</span>
-      </div>
-      <div class="ig-content-item">
-        <span class="class-tag">🔵高二物理</span> <br>5/4 無課後作業<br>
-        <span class="status-alert">🚨 5/11 停課</span>
-      </div>
-    </div>
-    <div class="ig-card-footer">5月8日</div>
+  <!-- 圖片區塊：四圖完整呈現 -->
+  <div class="image-grid">
+    <img src="Grad10-02.png" alt="高一課表">
+    <img src="Grad11-02.png" alt="高二課表">
+    <img src="Grad10-05.png" alt="高一五月課表">
+    <img src="Grad11-05.png" alt="高二五月課表">
   </div>
-
-  <!-- 高三卡片 -->
-  <div class="ig-card special-promo">
-    <div class="ig-card-header">
-      <div class="ig-avatar"><div class="ig-avatar-inner">G12</div></div>
-      <span class="ig-username">天龍教育 _ 升學衝刺</span>
-    </div>
-    <div class="ig-card-body">
-      <span class="ig-title">🚀 分科數學複習班開課</span>
-      <p style="font-size: 14px; color: #444;">
-        <br>上課時間 <br>
-        🎯 <b>數甲：</b>5/24(六) - 7/5(六)<br>
-        🎯 <b>數乙：</b>5/25(日) - 7/6(日)
-      </p>
-      <p style="font-size: 13px; color: #00DD00;">#分科測驗 #倒數衝刺 #數學滿級分</p>
-    </div>
-    <div class="ig-card-footer">剛剛發佈</div>
-  </div>
-</div></section> 
-    
-<div class="flex flex-wrap md:flex-nowrap gap-4">
-  <div class="w-full md:w-1/2">
-    <img src="Grad10-02.png" alt="高一課表" class="w-full h-auto">
-  </div>
-  <div class="w-full md:w-1/2">
-    <img src="Grad11-02.png" alt="高二課表" class="w-full h-auto">
-  </div>
-</div>
-    <div class="flex flex-wrap md:flex-nowrap gap-4">
-  <div class="w-full md:w-1/2">
-    <img src="Grad10-05.png" alt="高一五月課表" class="w-full h-auto">
-  </div>
-  <div class="w-full md:w-1/2">
-    <img src="Grad11-05.png" alt="高二五月課表" class="w-full h-auto">
-  </div>
-</div>
+</section>
