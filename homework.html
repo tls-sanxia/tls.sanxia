@@ -1,495 +1,475 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每週作業、訊息公告 - 三峽天龍教室</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; background: #f4f6f8; } 
-        .brand-text { color: #1A6B2F; }
-        .social-fb { background: #1877f2; color: white; }
-        .social-yt { background: #ff0000; color: white; }
-        .tabs { display: flex; background: white; border-bottom: 1px solid #eee; }
-        .tab { flex: 1; text-align: center; padding: 12px; cursor: pointer; color: #666; transition: 0.2s; }
-        .tab:hover { background: #f5f5f5; }
-        .active { color: #1A6B2F; border-bottom: 2px solid #1A6B2F; font-weight: 700; }
-        .card { background: white; border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: 0.2s; }
-        .card:hover { transform: translateY(-2px); }
-        button { border: none; cursor: pointer; border-radius: 10px; padding: 6px 10px; }
-        .add { background: #1A6B2F; color: white; }
-        .delete { background: #ff4d4f; color: white; margin-top: 10px; }
-        .lock { position: fixed; top: 80px; right: 12px; background: white; border: 1px solid #eee; padding: 8px 12px; border-radius: 999px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 100; }
-        #adminPanel { display: none; background: white; padding: 12px; border-radius: 16px; margin-bottom: 12px; border: 1px solid #ddd; }
-        .class-section { margin-bottom: 25px; }
-        .class-title { font-size: 16px; font-weight: 700; margin: 10px 0; padding: 6px 10px; border-radius: 10px; display: inline-block; }
-        .grade1 { background:#e8f7ec; color:#1A6B2F; }
-        .grade2 { background:#e8f1ff; color:#1e5aa8; }
-        .grade3 { background:#ffe8e8; color:#b3261e; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每週作業、訊息公告 - 三峽天龍教室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 補上 Font Awesome 圖示庫，確保社群按鈕圖示正常顯示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #f4f6f8; } 
+        .brand-text { color: #1A6B2F; }
+        .social-fb { background: #1877f2; color: white; }
+        .social-yt { background: #ff0000; color: white; }
+        .tabs { display: flex; background: white; border-bottom: 1px solid #eee; }
+        .tab { flex: 1; text-align: center; padding: 12px; cursor: pointer; color: #666; transition: 0.2s; }
+        .tab:hover { background: #f5f5f5; }
+        .active { color: #1A6B2F; border-bottom: 2px solid #1A6B2F; font-weight: 700; }
+        .card { background: white; border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: 0.2s; }
+        .card:hover { transform: translateY(-2px); }
+        button { border: none; cursor: pointer; border-radius: 10px; padding: 6px 10px; }
+        .add { background: #1A6B2F; color: white; }
+        .delete { background: #ff4d4f; color: white; margin-top: 10px; }
+        .lock { position: fixed; top: 80px; right: 12px; background: white; border: 1px solid #eee; padding: 8px 12px; border-radius: 999px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 100; }
+        #adminPanel { display: none; background: white; padding: 12px; border-radius: 16px; margin-bottom: 12px; border: 1px solid #ddd; }
+        .class-section { margin-bottom: 25px; }
+        .class-title { font-size: 16px; font-weight: 700; margin: 10px 0; padding: 6px 10px; border-radius: 10px; display: inline-block; }
+        .grade1 { background:#e8f7ec; color:#1A6B2F; }
+        .grade2 { background:#e8f1ff; color:#1e5aa8; }
+        .grade3 { background:#ffe8e8; color:#b3261e; }
+
+        /* 基礎容器設定 */
+        .ig-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding: 0 16px;
+        }
+
+        /* 卡片寬度調整：在大螢幕時三格並列 */
+        .ig-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            border: 1px solid #dbdbdb;
+            border-radius: 8px;
+            background: #fff;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* 卡片頂部 (模擬帳號列) */
+        .ig-card-header {
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #efefef;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .ig-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ig-avatar-inner {
+            background: white;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #262626;
+        }
+
+        .ig-username {
+            font-weight: 600;
+            font-size: 14px;
+            color: #262626;
+        }
+
+        /* 卡片主體 (內容區) */
+        .ig-card-body {
+            padding: 8px 0;
+            min-height: 180px;
+        }
+
+        .ig-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #262626;
+            display: block;
+        }
+
+        .ig-content-item {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+            border-bottom: 1px solid #fafafa;
+            padding-bottom: 8px;
+        }
+
+        .class-tag {
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .status-alert {
+            background: #fff0f0;
+            color: #ed4956;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        /* 卡片底部 (互動列) */
+        .ig-card-footer {
+            padding-top: 10px;
+            border-top: 1px solid #efefef;
+            color: #8e8e8e;
+            font-size: 12px;
+        }
+
+        /* 圖片區塊：改用 Grid 讓圖片更整齊 */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); 
+            gap: 16px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
 
- <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-            <div class="flex items-center gap-3">
-                <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-10 h-10 rounded-full object-cover" style="border: 2px solid #fff; outline: 1.5px solid #1A6B2F; outline-offset: 1px;">
-                <span class="text-2xl font-bold brand-text tracking-tight text-green-800">三峽天龍教室</span>
-            </div>
+<nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center gap-3">
+                <img src="300788435_440411104773251_3159946660684644182_n.jpg" alt="天龍教室 LOGO" class="w-10 h-10 rounded-full object-cover" style="border: 2px solid #fff; outline: 1.5px solid #1A6B2F; outline-offset: 1px;">
+                <span class="text-2xl font-bold brand-text tracking-tight text-green-800">三峽天龍教室</span>
+            </div>
 
-            <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
-              
-                 <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
-                <a href="https://tianlong-edu.pixnet.net/blog" target="_blank" class="hover:text-green-700 font-medium transition">🏆天龍傳奇🏆</a>
-                
-                <!-- 最新消息 下拉選單連結 -->
-                <div class="relative group inline-block">
-                    <a href="https://tls-sanxia.github.io/yangshuo-math/"class="hover:text-green-700 font-medium transition flex items-center">楊碩數學>
-                    <a href="news.html" class="hover:text-green-700 font-medium transition flex items-center">
-                        最新消息
-                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </a>
-                    <!-- 下拉選單內容 -->
-                    <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <div class="py-2">
-                            <a href="early-bird.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">早鳥優惠</a>
-                            <a href="homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">每週作業</a>
-                        </div>
-                    </div>
-                </div>
+            <!-- 電腦版導覽列 -->
+            <div class="hidden md:flex items-center gap-5 text-sm lg:text-base">
+                <a href="https://tianlong-edu.pixnet.net/blog" target="_blank" class="hover:text-green-700 font-medium transition">🏆天龍傳奇🏆</a>
+                <a href="https://tls-sanxia.github.io/yangshuo-math/" target="_blank" class="hover:text-green-700 font-medium transition flex items-center">楊碩數學</a>
+                
+                <!-- 最新消息 下拉選單連結 -->
+                <div class="relative group inline-block">
+                    <a href="news.html" class="hover:text-green-700 font-medium transition flex items-center">
+                        最新消息
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="py-2">
+                            <a href="early-bird.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">早鳥優惠</a>
+                            <a href="homework.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">每週作業</a>
+                        </div>
+                    </div>
+                </div>
 
-            <a href="faq.html" class="hover:text-green-700 font-medium transition">常見問題</a> 
-                     
-                       <!-- 活動花絮 下拉選單連結 -->
-                <div class="relative group inline-block">
-                    <a href="news.html" class="hover:text-green-700 font-medium transition flex items-center">
-                        活動花絮
-                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </a>
-                    <!-- 下拉選單內容 -->
-                    <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <div class="py-2">
-                            <a href="index.html#gallery" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">活動花絮</a>
-                            <a href="115photo.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">榮耀時刻</a>
-                        </div>
-                    </div>
-                </div>
+                <a href="faq.html" class="hover:text-green-700 font-medium transition">常見問題</a> 
+                         
+                <!-- 活動花絮 下拉選單連結 -->
+                <div class="relative group inline-block">
+                    <a href="news.html" class="hover:text-green-700 font-medium transition flex items-center">
+                        活動花絮
+                        <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                    <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="py-2">
+                            <a href="index.html#gallery" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">活動花絮</a>
+                            <a href="115photo.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition">榮耀時刻</a>
+                        </div>
+                    </div>
+                </div>
 
-                <a href="index.html#teachers" class="hover:text-green-700 font-medium transition">名師課程</a>
-                  <a href="index.html#home" class="hover:text-green-700 font-medium transition">首頁</a>
-                <a href="index.html#info" class="hover:text-green-700 font-medium transition">營業資訊</a>
-                     
-                    <a href="tel:02-2672-2088" class="bg-green-600 text-white px-4 py-2 rounded-full text-sm hover:bg-green-700 transition shadow-sm">📞 02-2672-2088</a>
-                </div>
-            </div>
+                <a href="index.html#teachers" class="hover:text-green-700 font-medium transition">名師課程</a>
+                <a href="index.html#home" class="hover:text-green-700 font-medium transition">首頁</a>
+                <a href="index.html#info" class="hover:text-green-700 font-medium transition">營業資訊</a>
+                <a href="tel:02-2672-2088" class="bg-green-600 text-white px-4 py-2 rounded-full text-sm hover:bg-green-700 transition shadow-sm">📞 02-2672-2088</a>
+            </div>
 
-            <div class="md:hidden flex items-center">
-                <button id="menu-btn" class="text-gray-600 focus:outline-none p-2">
-                    <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
+            <!-- 手機版漢堡按鈕 -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none p-2">
+                    <svg id="menu-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
 
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
-        <div class="px-4 pt-2 pb-6 space-y-1">
-            <a href="https://tianlong-edu.pixnet.net/blog" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 rounded-md">🏆天龍傳奇🏆</a>
-            
-            <!-- 手機版展開選單 -->
-            <div class="border-l-2 border-green-100 ml-2">
-                <a href="news.html" class="block px-3 py-2 text-base font-bold text-green-700">最新消息</a>
-                  <a href="https://tls-sanxia.github.io/yangshuo-math/"class=">楊碩數學</a>
-                <a href="early-bird.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 早鳥優惠</a>
-                <a href="homework.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 每週作業</a>
-            </div>
-            <a href="faq.html" class="hover:text-green-700 font-medium transition">常見問題</a>
-             <!-- 手機版展開選單 -->
-            <div class="border-l-2 border-green-100 ml-2">
-                <a href="index.html#gallery" class="block px-3 py-2 text-base font-bold text-green-700">活動花絮</a>
-           <a href="#gallery" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 活動花絮</a>
-                <a href="115photo.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 榮耀時刻</a>
-            
-                <a href="index.html#teachers" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">名師課程</a>
+    <!-- 手機版展開選單 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
+        <div class="px-4 pt-2 pb-6 space-y-1">
+            <a href="https://tianlong-edu.pixnet.net/blog" target="_blank" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 rounded-md">🏆天龍傳奇🏆</a>
+            <a href="https://tls-sanxia.github.io/yangshuo-math/" target="_blank" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">楊碩數學</a>
+            
+            <div class="border-l-2 border-green-100 ml-2">
+                <a href="news.html" class="block px-3 py-2 text-base font-bold text-green-700">最新消息</a>
+                <a href="early-bird.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 早鳥優惠</a>
+                <a href="homework.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 每週作業</a>
+            </div>
 
-                           <a href="index.html#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">首頁</a>
-            <a href="index.html#info" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">營業資訊</a>
-                      
-            <div class="pt-4 border-t border-gray-100">
-                <a href="tel:02-2672-2088" class="block w-full text-center bg-green-600 text-white px-4 py-3 rounded-xl font-bold">撥打電話：02-2672-2088</a>
-            </div>
-        </div>
-    </div>
+            <a href="faq.html" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">常見問題</a>
+
+            <div class="border-l-2 border-green-100 ml-2">
+                <a href="index.html#gallery" class="block px-3 py-2 text-base font-bold text-green-700">活動花絮</a>
+                <a href="#gallery" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 活動花絮</a>
+                <a href="115photo.html" class="block px-6 py-2 text-sm text-gray-600 hover:text-green-700">└ 榮耀時刻</a>
+            </div>
+
+            <a href="index.html#teachers" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">名師課程</a>
+            <a href="index.html#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">首頁</a>
+            <a href="index.html#info" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-md">營業資訊</a>
+                      
+            <div class="pt-4 border-t border-gray-100">
+                <a href="tel:02-2672-2088" class="block w-full text-center bg-green-600 text-white px-4 py-3 rounded-xl font-bold">撥打電話：02-2672-2088</a>
+            </div>
+        </div>
+    </div>
 </nav>
-       
 
-    <header class="text-center mt-24 py-6 font-bold text-xl">📢 每週作業、訊息公告 📢</header>
-    
- <div class="flex flex-wrap gap-4">
-     <!-- 社群媒體按鈕橫條區塊 (100% 還原圖片樣式) -->
-    <div class="">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            
-            <!-- 社群媒體連結容器 -->
-            <div class="flex flex-wrap items-center gap-3 md:gap-4">
+<header class="text-center mt-24 py-6 font-bold text-xl">📢 每週作業、訊息公告 📢</header>
 
-                <!-- Facebook -->
-                <a href="https://www.facebook.com/tianlongTL1/" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Facebook"
-                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#1877F2] text-white font-bold text-base shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all duration-200 group">
-                    <i class="fa-brands fa-facebook-f text-lg transition-transform group-hover:scale-110"></i>
-                    <span>Facebook</span>
-                </a>
+<!-- 社群媒體與快速連結按鈕橫條區塊 -->
+<div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4">
 
-                <!-- YouTube -->
-                <a href="https://youtube.com/channel/UC5cws6RPAUvKdTsYJmYCj2A?si=PHjPshvmNgszfv-r" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="YouTube"
-                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#FF0000] text-white font-bold text-base shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-0.5 transition-all duration-200 group">
-                    <i class="fa-brands fa-youtube text-lg transition-transform group-hover:scale-110"></i>
-                    <span>YouTube</span>
-                </a>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/tianlongTL1/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#1877F2] text-white font-bold text-base shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all duration-200 group">
+            <i class="fa-brands fa-facebook-f text-lg transition-transform group-hover:scale-110"></i>
+            <span>Facebook</span>
+        </a>
 
-                <!-- LINE 官方 -->
-                <a href="https://lin.ee/RkHBFuG" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="LINE 官方"
-                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#06C755] text-white font-bold text-base shadow-md shadow-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200 group">
-                    <i class="fa-brands fa-line text-xl transition-transform group-hover:scale-110"></i>
-                    <span>LINE 官方</span>
-                </a>
+        <!-- YouTube -->
+        <a href="https://youtube.com/channel/UC5cws6RPAUvKdTsYJmYCj2A?si=PHjPshvmNgszfv-r" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
+           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#FF0000] text-white font-bold text-base shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-0.5 transition-all duration-200 group">
+            <i class="fa-brands fa-youtube text-lg transition-transform group-hover:scale-110"></i>
+            <span>YouTube</span>
+        </a>
 
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/26722088tl/" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Instagram"
-                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] text-white font-bold text-base shadow-md shadow-pink-500/20 hover:shadow-lg hover:shadow-pink-500/30 hover:-translate-y-0.5 transition-all duration-200 group">
-                    <i class="fa-brands fa-instagram text-xl transition-transform group-hover:scale-110"></i>
-                    <span>Instagram</span>
-                </a>
+        <!-- LINE 官方 -->
+        <a href="https://lin.ee/RkHBFuG" target="_blank" rel="noopener noreferrer" aria-label="LINE 官方"
+           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#06C755] text-white font-bold text-base shadow-md shadow-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200 group">
+            <i class="fa-brands fa-line text-xl transition-transform group-hover:scale-110"></i>
+            <span>LINE 官方</span>
+        </a>
 
-                <!-- TikTok -->
-                <a href="https://www.tiktok.com/@sunny.chen543" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="TikTok"
-                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#000000] text-white font-bold text-base shadow-md shadow-gray-900/20 hover:shadow-lg hover:shadow-gray-900/30 hover:-translate-y-0.5 transition-all duration-200 group">
-                    <i class="fa-brands fa-tiktok text-lg transition-transform group-hover:scale-110"></i>
-                    <span>TikTok</span>
-                </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/26722088tl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] text-white font-bold text-base shadow-md shadow-pink-500/20 hover:shadow-lg hover:shadow-pink-500/30 hover:-translate-y-0.5 transition-all duration-200 group">
+            <i class="fa-brands fa-instagram text-xl transition-transform group-hover:scale-110"></i>
+            <span>Instagram</span>
+        </a>
 
-                <!-- 方格子 -->
-                <a href="https://vocus.cc/article/69f753d5fd89780001aac969" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="方格子"
-                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#2F855A] text-white font-bold text-base shadow-md shadow-green-800/20 hover:shadow-lg hover:shadow-green-800/30 hover:-translate-y-0.5 transition-all duration-200 group">
-                    <i class="fa-solid fa-pen-nib text-base transition-transform group-hover:scale-110"></i>
-                    <span>方格子</span>
-                </a>
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@sunny.chen543" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
+           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#000000] text-white font-bold text-base shadow-md shadow-gray-900/20 hover:shadow-lg hover:shadow-gray-900/30 hover:-translate-y-0.5 transition-all duration-200 group">
+            <i class="fa-brands fa-tiktok text-lg transition-transform group-hover:scale-110"></i>
+            <span>TikTok</span>
+        </a>
 
-                <!-- 痞客邦 -->
-                <a href="https://tianlong-edu.pixnet.net/blog" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="痞客邦"
-                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#00A87E] text-white font-bold text-base shadow-md shadow-teal-600/20 hover:shadow-lg hover:shadow-teal-600/30 hover:-translate-y-0.5 transition-all duration-200 group">
-                    <i class="fa-solid fa-blog text-base transition-transform group-hover:scale-110"></i>
-                    <span>痞客邦</span>
-                </a>
- <a href="https://tls-sanxia.github.io/yangshuo-math/"class=">楊碩數學</a>
-            </div>
-        </div>
-    </div>
+        <!-- 方格子 -->
+        <a href="https://vocus.cc/article/69f753d5fd89780001aac969" target="_blank" rel="noopener noreferrer" aria-label="方格子"
+           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#2F855A] text-white font-bold text-base shadow-md shadow-green-800/20 hover:shadow-lg hover:shadow-green-800/30 hover:-translate-y-0.5 transition-all duration-200 group">
+            <i class="fa-solid fa-pen-nib text-base transition-transform group-hover:scale-110"></i>
+            <span>方格子</span>
+        </a>
 
-    </section>
+        <!-- 痞客邦 -->
+        <a href="https://tianlong-edu.pixnet.net/blog" target="_blank" rel="noopener noreferrer" aria-label="痞客邦"
+           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#00A87E] text-white font-bold text-base shadow-md shadow-teal-600/20 hover:shadow-lg hover:shadow-teal-600/30 hover:-translate-y-0.5 transition-all duration-200 group">
+            <i class="fa-solid fa-blog text-base transition-transform group-hover:scale-110"></i>
+            <span>痞客邦</span>
+        </a>
 
+        <!-- 楊碩數學 -->
+        <a href="https://tls-sanxia.github.io/yangshuo-math/" target="_blank" rel="noopener noreferrer" aria-label="楊碩數學"
+           class="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[#1A6B2F] text-white font-bold text-base shadow-md shadow-green-900/20 hover:shadow-lg hover:shadow-green-900/30 hover:-translate-y-0.5 transition-all duration-200 group">
+            <i class="fa-solid fa-square-root-variable text-base transition-transform group-hover:scale-110"></i>
+            <span>楊碩數學</span>
+        </a>
 
-<style>
-  /* 模擬 IG 背景 */
-  .ig-feed-container {
-    background-color: #fafafa;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
+    </div>
+</div>
 
-  /* IG 卡片樣式 */
-  .ig-card {
-    background: #FFFFFF;
-    border: 2px solid #AAAAAA;
-    border-radius: 8px;
-    width: 350px;
-    overflow: hidden;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  }
+<!-- 每週課務公告卡片區 -->
+<section class="mt-4">
+    <div class="ig-container">
+        <!-- 高一卡片 -->
+        <div class="ig-card">
+            <div class="ig-card-header">
+                <div class="ig-avatar"><div class="ig-avatar-inner">G10</div></div>
+                <span class="ig-username">🚨天龍教育 _ 高一專區🚨</span>  
+            </div>
+            <div class="ig-card-body">
+                <span class="ig-title">📌 本週課務公告</span>  
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#4caf50;">🟢高一英文</span><br>
+                    11/16(一) 18:00 <br>
+                    作業檢查: U6 大補帖 <br>
+                    <span class="status-alert">小考: U6 例句</span>
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#ff9800;">🔴高一數學資優班 吳俅老師</span><br>
+                    🚨11/13 (五) 18:00 🚨<br>
+                    作業檢查: 直線與圓/多項式 SEC3 <br>
+                    小考: 直線與圓 + 多項式 週考4
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#fbc02d; color:#333;">🟡高一數學精英班 楊丞老師</span><br>
+                    🚨 🚨 <br>
+                    <span class="status-alert">11/14(六) 13:30</span><br>
+                    作業檢查：直線與圓 SEC3 #1-8 /多項式 SEC2 (完)、SEC3 #12 <br>
+                    小考: 直線與圓 + 多項式 週考4
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#2196f3;">🔵高一自然</span><br>
+                    11/11(三) 18:00 <br>
+                    作業檢查：物 P.129-132、化 P.43-45(全) <br>
+                    小考：<br>
+                    化學-酸鹼、氧化還原 <br>
+                    物理-光電效應、物質波
+                </div>
+            </div>
+            <div class="ig-card-footer"></div>
+        </div>
 
-  /* 卡片頂部 (模擬帳號列) */
-  .ig-card-header {
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #efefef;
-  }
+        <!-- 高二卡片 -->
+        <div class="ig-card">
+            <div class="ig-card-header">
+                <div class="ig-avatar"><div class="ig-avatar-inner">G11</div></div>
+                <span class="ig-username">天龍教育 _ 高二專區</span> 
+            </div>
+            <div class="ig-card-body">
+                <span class="ig-title">📝 本週課務公告</span>  
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#4caf50;">🟢高二英文</span><br>
+                    11/13 (五) 18:00 <br>
+                    作業檢查： U5大補帖 <br>
+                    <span class="status-alert">小考： U6 單字例句</span>
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#fbc02d; color:#333;">高二奪分班</span><br>
+                    11/18(三)上課
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#2196f3;">🔵高二數學</span><br>
+                    11/15 (日) 13:30 <br>
+                    週考: 對數應用 <br>
+                    <span class="status-alert">作業檢查: 狂練 選、填各15</span>
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#fbc02d; color:#333;">🟡高二物理</span><br>
+                    11/16(一) 18:00 <br>
+                    作業檢查：P.94-97 <br>
+                    <span class="status-alert">週考: 牛二、滑輪</span>
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#9c27b0;">🟣高一二國文</span><br>
+                    🚨 11/15 (日) 9:00 🚨<br>
+                    週考 : 項脊軒志 <br>
+                    作業: P.8-21
+                </div>
+            </div>
+            <div class="ig-card-footer"></div>
+        </div>
 
-  .ig-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    margin-right: 12px;
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    padding: 2px;
-  }
-  
-  .ig-avatar-inner {
-    background: white;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    color: #262626;
-  }
-
-  .ig-username {
-    font-weight: 600;
-    font-size: 14px;
-    color: #262626;
-  }
-
-  /* 卡片主體 (內容區) */
-  .ig-card-body {
-    padding: 16px;
-    min-height: 180px;
-  }
-
-  .ig-title {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    color: #262626;
-    display: block;
-  }
-
-  .ig-content-item {
-    margin-bottom: 12px;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .class-tag {
-    font-weight: 700;
-    color: #00376b; /* 類似連結的藍色 */
-    margin-right: 5px;
-  }
-
-  .status-alert {
-    background: #fff0f0;
-    color: #ed4956; /* IG 警示紅 */
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 13px;
-  }
-
-  /* 卡片底部 (互動列) */
-  .ig-card-footer {
-    padding: 10px 16px;
-    border-top: 1px solid #efefef;
-    color: #8e8e8e;
-    font-size: 12px;
-    text-transform: uppercase;
-  }
-
-  /* 針對高三開課的特別強調 */
-  .special-promo {
-    background: linear-gradient(to right, #fdfcfb 0%, #e2d1c3 100%);
-  }
-</style>
-<style>
-  /* 基礎容器設定 */
-  .ig-container {
-    display: flex;
-    flex-wrap: wrap; /* 在小螢幕時自動換行 */
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-
-  /* 卡片寬度調整：在大螢幕時三格並列 */
-  .ig-card {
-    flex: 1;
-    min-width: 300px; /* 確保卡片不會縮太小 */
-    max-width: 400px;
-    border: 1px solid #dbdbdb;
-    border-radius: 8px;
-    background: #fff;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  }
-
-  /* 圖片區塊：改用 Grid 讓四張圖更整齊 */
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); 
-    gap: 16px;
-    width: 100%;
-  }
-
-  /* 圖片自適應 */
-  .image-grid img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-  }
-
-  /* 文字與標籤樣式補充 */
-  .ig-card-header { display: flex; align-items: center; margin-bottom: 10px; font-weight: bold; }
-  .ig-avatar { margin-right: 10px; width: 40px; height: 40px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-  .status-alert { color: #ed4956; font-weight: bold; }
-  .class-tag { font-weight: bold; padding: 2px 6px; border-radius: 4px; color: white; display: inline-block; margin-bottom: 4px; }
-  .ig-content-item { margin-bottom: 12px; border-bottom: 1px solid #fafafa; padding-bottom: 8px; }
-  
-  /* 標籤顏色 */
-  .🟢高一英文 { background: #4caf50; }
-  .🟠高一數學精英班 { background: #ff9800; }
-  .🟡高一數學資優班 { background: #ffeb3b; color: #333; }
-  /* ...以此類推 */
-</style>
-
-<section>
-    <div class="ig-container">
-        <!-- 高一卡片 -->
-        <div class="ig-card">
-            <div class="ig-card-header">
-                <div class="ig-avatar"><div class="ig-avatar-inner">G10</div></div>
-                <span class="ig-username">🚨天龍教育 _ 高一專區🚨</span>  
-            </div>
-            <div class="ig-card-body">
-                <span class="ig-title">📌 本週課務公告</span>  
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#4caf50;">🟢高一英文</span>
-                    <br>11/16(一) 18:00 <br>作業檢查: U6 大補帖 
-                    <span class="status-alert"> <br>
-                        小考:  U6 例句 </span>
-                    
-    
-                </div>
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#ff9800;">🔴高一數學資優班 吳俅老師</span><br>🚨11/13 (五) 18:00 🚨
-                     <br>作業檢查: 直線與圓/多項式 SEC3   <br>小考:直線與圓 + 多項式 週考4
-                    <span class="status-alert"></span>
-                </div>
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#fbc02d;">🟡高一數學精英班 楊丞老師</span><br>
-                     🚨  🚨 <br>
-                    <span class="status-alert"> 11/14(六) 13:30 </span><br>作業檢查：直線與圓 SEC3 #1-8 /多項式 SEC2 (完)、SEC3 #12   <br>小考: 直線與圓 + 多項式 週考4
-                </div>
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#2196f3;">🔵高一自然</span><br>
-                     <br> 11/11(三) 18:00 <br>作業檢查：物 P.129-132、化 P.43-45(全)    
-<br>
-                    <span class="status-alert"></span>小考：<br>化學-酸鹼、氧化還原   <br>物理-光電效應、物質波
-                </div>
-            </div>
-            <div class="ig-card-footer"></div>
-        </div>
-
-        <!-- 高二卡片 -->
-        <div class="ig-card">
-            <div class="ig-card-header">
-                <div class="ig-avatar"><div class="ig-avatar-inner">G11</div></div>
-                <span class="ig-username">天龍教育 _ 高二專區</span> 
-            </div>
-            <div class="ig-card-body">
-                <span class="ig-title">📝 本週課務公告</span>  
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#4caf50;">🟢高二英文</span><br>11/13 (五) 18:00 <br>作業檢查： U5大補帖
-                     <br>
-                     <span class="status-alert">小考： U6 單字例句 </span><br>
-                </div>
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#fbc02d;">高二奪分班</span><br>
-                    11/18(三)上課</span></div>
-                <div class="ig-content-item">
-                     <span class="class-tag" style="background:#2196f3;">🔵高二數學</span><br>
-                    11/15 (日) 13:30 <br>週考: 對數應用  <span class="status-alert"><br>作業檢查: 狂練 選、填各15
-                         </span>
-                </div>
-                <div class="ig-content-item">
-                    <<span class="class-tag" style="background:#fbc02d;">🟡高二物理</span><br>
-                    11/16(一) 18:00 <br>作業檢查：P.94-97  <br><span class="status-alert"> 週考: 牛二、滑輪 </span>
-                </div>
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#9c27b0;">🟣高一二國文</span><br>
-                    🚨 11/15 (日) 9:00 🚨<br> 週考 :　項脊軒志　　　<br>作業: P.8-21
-                    <span class="status-alert">
-                </span>
-                </div>
-            </div>
-            <div class="ig-card-footer"></div>
-        </div>
-
-   <!-- 高三卡片 -->
-        <div class="ig-card">
-            <div class="ig-card-header">
-                <div class="ig-avatar"><div class="ig-avatar-inner">G11</div></div>
-                <span class="ig-username">天龍教育 _ 高三專區</span> 
-            </div>
-            <div class="ig-card-body">
-                <span class="ig-title">📝 本週課務公告</span>
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#4caf50;">🟢高三英文</span>
-
-                     11/15(日)<br>作業檢查：</span> 連貫式翻譯 11-15 <br>字庫46～48回<br>文選36-40 
-                     <br><span class="status-alert">小考：版本單字 2-0002 ~ 2-0210 
-                     </span><br>🚨🚨帶手機🚨🚨<br>線上Wayground(原Quizizz)英文單字檢測<br>                    
-                </div>
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#fbc02d;">🟡高三數學 M306</span><br>
-                    11/14 (六) <br>作業檢查：SEC 2  <br><span class="status-alert">考試： 模考~空間向量 </span>
-<br>
-                   
-                <div class="ig-content-item">
-                    <span class="class-tag" style="background:#2196f3;">🔵高三數學 見證奇蹟</span><br>
-                     11/15 (日)   <br>帶  見證奇蹟  <br>二冊 公式考
-                   
-                    <br><span class="status-alert"> </span>
-
-                    
-                </div>
-
-                </div>
-
-            </div>
-            <div class="ig-card-footer">8月7日</div>
-        </div>
-    </div>
+        <!-- 高三卡片 -->
+        <div class="ig-card">
+            <div class="ig-card-header">
+                <div class="ig-avatar"><div class="ig-avatar-inner">G12</div></div>
+                <span class="ig-username">天龍教育 _ 高三專區</span> 
+            </div>
+            <div class="ig-card-body">
+                <span class="ig-title">📝 本週課務公告</span>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#4caf50;">🟢高三英文</span><br>
+                    11/15(日)<br>
+                    作業檢查：連貫式翻譯 11-15 <br>
+                    字庫46～48回<br>
+                    文選36-40 <br>
+                    <span class="status-alert">小考：版本單字 2-0002 ~ 2-0210</span><br>
+                    🚨🚨帶手機🚨🚨<br>
+                    線上Wayground(原Quizizz)英文單字檢測
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#fbc02d; color:#333;">🟡高三數學 M306</span><br>
+                    11/14 (六) <br>
+                    作業檢查：SEC 2 <br>
+                    <span class="status-alert">考試： 模考~空間向量</span>
+                </div>
+                <div class="ig-content-item">
+                    <span class="class-tag" style="background:#2196f3;">🔵高三數學 見證奇蹟</span><br>
+                    11/15 (日) <br>
+                    帶 見證奇蹟 <br>
+                    二冊 公式考
+                </div>
+            </div>
+            <div class="ig-card-footer">8月7日</div>
+        </div>
+    </div>
 </section>
-  <!-- 圖片區塊：四圖完整呈現 -->
-  <div class="image-grid">
-          <img src="" alt="小高一課表">  <br>
-    <img src="" alt="高二課表"><br>
-    <img src="" alt="高三課表"><br>
-  
-  </div>
+
+<!-- 圖片區塊 -->
+<section class="mb-10">
+    <div class="image-grid">
+        <img src="" alt="小高一課表">
+        <img src="" alt="高二課表">
+        <img src="" alt="高三課表">
+    </div>
 </section>
-把 <a href="https://tls-sanxia.github.io/yangshuo-math/"class="hover:text-green-700 font-medium transition flex items-center">楊碩數學</a>加入語法中
+
+<!-- 手機版選單互動腳本 -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (menuBtn && mobileMenu && menuIcon) {
+        menuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
